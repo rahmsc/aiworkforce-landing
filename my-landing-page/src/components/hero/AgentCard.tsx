@@ -1,140 +1,90 @@
 "use client";
 
-import { StatItem } from "./StatItem";
-import { useState, useCallback, createElement } from "react";
-import { Brain, TrendingUp, LineChart, type LucideIcon } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
 
-// Define the agent type for better type safety
-type Agent = {
-  id: number;
+interface TeamMember {
   name: string;
-  role: string;
-  icon: LucideIcon;
-  stats: {
-    accuracy: string;
-    processed: string;
-    insights: string;
-    models: string;
-  };
-  since: string;
-};
+  position: string;
+  photo: string;
+  stats: Record<string, string>;
+  yearJoined: string;
+  cardNumber: string;
+}
 
-const agents: Agent[] = [
-  {
-    id: 1,
-    name: "DataSage",
-    role: "Data Analyst",
-    icon: Brain,
-    stats: {
-      accuracy: "99%",
-      processed: "5TB+",
-      insights: "48/day",
-      models: "120+",
-    },
-    since: "2023",
-  },
-  {
-    id: 2,
-    name: "MarketMind",
-    role: "Marketing Strategist",
-    icon: TrendingUp,
-    stats: {
-      accuracy: "97%",
-      processed: "1M+",
-      insights: "35/day",
-      models: "85+",
-    },
-    since: "2023",
-  },
-  {
-    id: 3,
-    name: "SalesGenius",
-    role: "Sales Optimizer",
-    icon: LineChart,
-    stats: {
-      accuracy: "98%",
-      processed: "2M+",
-      insights: "52/day",
-      models: "95+",
-    },
-    since: "2023",
-  },
-];
+interface AgentCardProps {
+  teamMembers: TeamMember[];
+}
 
-const AgentCard = () => {
+const AgentCard = ({ teamMembers }: AgentCardProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const currentAgent = agents[currentIndex];
-
-  const handleDotClick = useCallback((index: number) => {
-    setCurrentIndex(index);
-  }, []);
+  const currentMember = teamMembers[currentIndex];
 
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <div className="w-[280px] h-[392px] bg-card-dark rounded-3xl overflow-hidden">
-        {/* Header */}
-        <div className="flex justify-between items-center p-4 bg-teal-dark bg-opacity-40">
-          <div className="text-cyber-blue font-mono text-sm">AI·OPS</div>
-          <div className="flex items-center space-x-2">
-            <span className="text-cyber-blue text-sm">PREMIUM</span>
-            <span className="text-cyber-blue text-sm">2023</span>
-          </div>
-        </div>
+    <div className="relative w-full max-w-md">
+      <div className="relative">
+        {/* Glow Effect */}
+        <div className="absolute inset-0 bg-cyber-blue/5 rounded-2xl blur-3xl" />
 
-        {/* Main Content - adjusted padding for better spacing */}
-        <div className="p-6 flex flex-col space-y-6">
-          {/* Agent Icon - now using Lucide icons */}
-          <div className="h-24 flex items-center justify-center">
-            {createElement(currentAgent.icon, {
-              className: "w-16 h-16 text-cyber-blue",
-              strokeWidth: 1.5,
-            })}
+        <div className="relative rounded-2xl p-6 bg-navy-800/50 border border-cyber-blue/20 backdrop-blur-sm">
+          {/* AI-OPS Badge */}
+          <div className="absolute top-6 left-6">
+            <div className="bg-cyber-blue/10 text-cyber-blue font-bold py-1 px-4 rounded-md transform -rotate-6 border border-cyber-blue/20">
+              AI•OPS
+            </div>
           </div>
 
-          {/* Agent Info - adjusted text sizes */}
-          <div className="space-y-1">
-            <h2 className="text-white text-2xl font-bold text-center">
-              {currentAgent.name}
-            </h2>
-            <p className="text-cyber-blue font-mono text-sm text-center">
-              {currentAgent.role}
+          {/* Premium Badge */}
+          <div className="absolute top-6 right-6">
+            <div className="text-cyber-blue font-mono font-semibold text-sm">
+              PREMIUM AI AGENT
+            </div>
+          </div>
+
+          {/* Agent Photo */}
+          <div className="mt-12 mb-8 flex justify-center">
+            <div className="w-40 h-40 rounded-full bg-navy-900/50 border-4 border-cyber-blue/20 overflow-hidden backdrop-blur-sm">
+              <Image
+                src={currentMember.photo}
+                alt={currentMember.name}
+                width={160}
+                height={160}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Agent Info */}
+          <div className="bg-navy-900/50 -mx-6 p-4 backdrop-blur-sm border-y border-cyber-blue/20">
+            <h3 className="text-3xl font-bold text-white mb-1">
+              {currentMember.name}
+            </h3>
+            <p className="font-mono text-cyber-blue">
+              {currentMember.position}
             </p>
           </div>
 
-          {/* Stats Grid - adjusted spacing */}
-          <div className="grid grid-cols-2 gap-3">
-            <StatItem label="ACCURACY:" value={currentAgent.stats.accuracy} />
-            <StatItem label="PROCESSED:" value={currentAgent.stats.processed} />
-            <StatItem label="INSIGHTS:" value={currentAgent.stats.insights} />
-            <StatItem label="MODELS:" value={currentAgent.stats.models} />
+          {/* Stats Grid */}
+          <div className="mt-4 grid grid-cols-2 gap-3 font-mono">
+            {Object.entries(currentMember.stats).map(([key, value], index) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              <div key={index} className="flex flex-col">
+                <span className="text-gray-400 font-bold text-sm">{key}</span>
+                <span className="text-cyber-blue text-sm">{value}</span>
+              </div>
+            ))}
           </div>
 
-          {/* Footer */}
-          <div className="text-cyber-blue text-xs font-mono text-center">
-            Active since {currentAgent.since}
+          {/* Card Footer */}
+          <div className="mt-4 text-center font-mono text-gray-400 text-sm">
+            Active since {currentMember.yearJoined}
+          </div>
+
+          {/* Card Number */}
+          <div className="absolute bottom-3 right-5 font-mono text-cyber-blue text-sm">
+            #{currentMember.cardNumber}
           </div>
         </div>
-      </div>
-
-      {/* Navigation Dots - centered and closer together */}
-      <div className="flex justify-center space-x-1.5 mt-2">
-        {agents.map((agent, index) => (
-          <button
-            type="button"
-            key={agent.id}
-            onClick={() => handleDotClick(index)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                handleDotClick(index);
-              }
-            }}
-            tabIndex={0}
-            aria-label={`View ${agent.name}`}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              currentIndex === index ? "bg-cyber-blue w-3" : "bg-gray-600"
-            }`}
-          />
-        ))}
       </div>
     </div>
   );
