@@ -14,10 +14,10 @@ interface TeamMember {
 
 interface AgentCardProps {
   teamMembers: TeamMember[];
+  currentIndex: number;
 }
 
-const AgentCard = ({ teamMembers }: AgentCardProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
   const currentMember = teamMembers[currentIndex];
 
   return (

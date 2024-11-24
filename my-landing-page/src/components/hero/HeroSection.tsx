@@ -1,4 +1,7 @@
+"use client";
+
 import AgentCard from "./AgentCard";
+import { useState } from "react";
 
 type TeamMember = {
   name: string;
@@ -78,6 +81,16 @@ const teamMembers: TeamMember[] = [
 ];
 
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section className="bg-dark-navy min-h-screen flex items-center px-6 py-20">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -107,6 +120,7 @@ const HeroSection = () => {
         <div className="flex items-center gap-4">
           <button
             type="button"
+            onClick={handlePrevious}
             aria-label="Previous agent"
             className="text-cyber-blue hover:text-white transition-colors p-2"
           >
@@ -128,11 +142,12 @@ const HeroSection = () => {
           </button>
 
           <div className="flex-1">
-            <AgentCard teamMembers={teamMembers} />
+            <AgentCard teamMembers={teamMembers} currentIndex={currentIndex} />
           </div>
 
           <button
             type="button"
+            onClick={handleNext}
             aria-label="Next agent"
             className="text-cyber-blue hover:text-white transition-colors p-2"
           >
