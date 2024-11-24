@@ -13,8 +13,8 @@ export default function Home() {
     <main>
       <HeroSection />
       <BusinessPotential />
-      <TransformBusiness />
       <AiExpertise />
+      <TransformBusiness />
       {/* <Benefits /> */}
       <HowItWorks />
       <Testimonials />

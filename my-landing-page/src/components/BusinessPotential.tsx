@@ -12,10 +12,10 @@ const challenges = [
 const BusinessPotential = () => {
   return (
     <section className="bg-background py-24 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
         {/* Left Column - Icon */}
-        <div className="flex justify-center md:justify-end">
-          <div className="relative w-48 h-48">
+        <div className="flex justify-center">
+          <div className="relative w-48 h-48 md:w-64 md:h-64">
             {/* Outer circle */}
             <div className="absolute inset-0 border border-cyber-blue/30 rounded-full" />
 
