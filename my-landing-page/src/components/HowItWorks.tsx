@@ -45,17 +45,17 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: -50, y: -50 }}
+              initial={{ opacity: 0, x: 50, y: 50 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.2, delay: index * 0.2 }}
               whileHover={{ scale: 1.02 }}
               className={`
                 group relative bg-navy-800/50 rounded-3xl p-8 border border-cyber-blue/20 
                 backdrop-blur-sm hover:border-cyber-blue/40 transition-all duration-300
                 md:w-[400px] mb-8 md:mb-0
                 ${index === 0 ? "md:ml-0 md:mt-0" : ""}
-                ${index === 1 ? "md:ml-[25%] md:-mt-4" : ""}
-                ${index === 2 ? "md:ml-[50%] md:-mt-4" : ""}
+                ${index === 1 ? "md:ml-[33%] md:-mt-4" : ""}
+                ${index === 2 ? "md:ml-[66%] md:-mt-4" : ""}
               `}
             >
               <div className="absolute inset-0 bg-cyber-blue/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
