@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 interface TeamMember {
   name: string;
   position: string;
-  photo: string;
+  photos: string[];
   stats: Record<string, string>;
-  yearJoined: string;
   cardNumber: string;
 }
 
@@ -19,6 +18,24 @@ interface AgentCardProps {
 
 const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
   const currentMember = teamMembers[currentIndex];
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Reset photo index when member changes
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    setPhotoIndex(0);
+  }, [currentIndex]);
+
+  // Auto cycle through member's photos every 3 seconds
+  useEffect(() => {
+    if (currentMember.photos.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setPhotoIndex((prev) => (prev + 1) % currentMember.photos.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentMember.photos.length]);
 
   return (
     <div className="relative w-full max-w-md">
@@ -42,16 +59,46 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
           </div>
 
           {/* Agent Photo */}
-          <div className="mt-12 mb-8 flex justify-center">
+          <div className="mt-12 mb-8 flex justify-center relative group">
             <div className="w-40 h-40 rounded-full bg-navy-900/50 border-4 border-cyber-blue/20 overflow-hidden backdrop-blur-sm">
               <Image
-                src={currentMember.photo}
-                alt={currentMember.name}
+                src={currentMember.photos[photoIndex]}
+                alt={`${currentMember.name} profile photo ${photoIndex + 1}`}
                 width={160}
                 height={160}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-opacity duration-300"
               />
             </div>
+            {currentMember.photos.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setPhotoIndex(
+                      (prev) =>
+                        (prev - 1 + currentMember.photos.length) %
+                        currentMember.photos.length
+                    )
+                  }
+                  className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label={`Previous photo of ${currentMember.name}`}
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setPhotoIndex(
+                      (prev) => (prev + 1) % currentMember.photos.length
+                    )
+                  }
+                  className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label={`Next photo of ${currentMember.name}`}
+                >
+                  →
+                </button>
+              </>
+            )}
           </div>
 
           {/* Agent Info */}
@@ -65,19 +112,18 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
           </div>
 
           {/* Stats Grid */}
-          <div className="mt-4 grid grid-cols-2 gap-3 font-mono">
+          <div className="mt-4 grid grid-cols-2 gap-3 font-mono mb-4">
             {Object.entries(currentMember.stats).map(([key, value], index) => (
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <div key={index} className="flex flex-col">
-                <span className="text-gray-400 font-bold text-sm">{key}</span>
-                <span className="text-cyber-blue text-sm">{value}</span>
+                <span className="text-gray-400 font-bold text-sm text-center">
+                  {key}
+                </span>
+                <span className="text-cyber-blue text-lg text-center">
+                  {value}
+                </span>
               </div>
             ))}
-          </div>
-
-          {/* Card Footer */}
-          <div className="mt-4 text-center font-mono text-gray-400 text-sm">
-            Active since {currentMember.yearJoined}
           </div>
 
           {/* Card Number */}

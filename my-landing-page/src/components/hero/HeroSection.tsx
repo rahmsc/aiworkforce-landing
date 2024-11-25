@@ -2,80 +2,77 @@
 
 import AgentCard from "./AgentCard";
 import { useState } from "react";
+import AnimatedBackground from "./AnimatedBackground";
 
 type TeamMember = {
   name: string;
   position: string;
-  photo: string;
+  photos: string[];
   stats: Record<string, string>;
-  yearJoined: string;
+
   cardNumber: string;
 };
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Alex",
-    position: "Customer Engagement Specialist",
-    photo: "/placeholder.svg?height=80&width=80",
+    name: "Sam",
+    position: "Social Media Strategist",
+    photos: ["/assets/agent-headshots/2.jpg"],
     stats: {
-      "Response Time": "30s",
-      Satisfaction: "98%",
-      "Messages/Day": "1000+",
-      Languages: "12",
+      "🏆 Engagement Rate": "⬆ 22%",
+      "⚡ Daily Posts": "24",
+      "🌎 Audience Reach": "1M+",
+      "🚀 Follower Growth": "+5K/mo",
     },
-    yearJoined: "2023",
     cardNumber: "001",
   },
   {
-    name: "Sam",
-    position: "Social Media Strategist",
-    photo: "/placeholder.svg?height=80&width=80",
+    name: "Alex",
+    position: "Customer Engagement Specialist",
+    photos: ["/assets/agent-headshots/1.jpg"],
     stats: {
-      Engagement: "12%",
-      "Posts/Day": "24",
-      Reach: "1M+",
-      Growth: "+5k/mo",
+      "⏱️ Response Time": "30 secs",
+      "😊 Satisfaction Rate": "98%",
+      "💬 Messages/Day": "1000+",
+      "🌍 Languages": "12",
     },
-    yearJoined: "2023",
     cardNumber: "002",
   },
+
   {
     name: "Taylor",
     position: "Knowledge Base Manager",
-    photo: "/placeholder.svg?height=80&width=80",
+    photos: ["/assets/agent-headshots/4.jpg"],
     stats: {
-      Accuracy: "99.5%",
-      Database: "10TB",
-      Queries: "1000+/day",
-      Sources: "500+",
+      "✔️ Accuracy": "99.5%",
+      "📚 Database Size": "10 TB",
+      "🔍 Queries Handled": "1000+/day",
+      "🌐 Sources Maintained": "500+",
     },
-    yearJoined: "2023",
     cardNumber: "003",
   },
   {
     name: "Jordan",
     position: "Productivity Coach",
-    photo: "/placeholder.svg?height=80&width=80",
+    photos: ["/assets/agent-headshots/5.jpg"],
     stats: {
-      "Time Saved": "40hrs/mo",
-      Tasks: "500+/week",
-      Rating: "4.9/5",
-      ROI: "300%",
+      "⏱️ Time Saved": "40hrs/mo",
+      "✅ Tasks Completed": "500+/week",
+      "⭐ Client Rating": "4.9/5",
+      "📈 ROI Achieved": "300%",
     },
-    yearJoined: "2023",
     cardNumber: "004",
   },
   {
     name: "Casey",
     position: "Workflow Automation Expert",
-    photo: "/placeholder.svg?height=80&width=80",
+    photos: ["/assets/agent-headshots/6.jpg"],
     stats: {
-      Processes: "100+",
-      Efficiency: "+35%",
-      Revenue: "$500k/yr",
-      Systems: "25+",
+      "🔄 Processes Automated": "100+",
+      "⚡ Efficiency Boost": "+35%",
+      "💵 Revenue Generated": "$500K/yr",
+      "🖥️ Systems Optimized": "25+",
     },
-    yearJoined: "2023",
     cardNumber: "005",
   },
 ];
@@ -92,27 +89,26 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="bg-dark-navy min-h-screen flex items-center px-6 py-20">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen flex items-center px-6 py-20">
+      <AnimatedBackground />
+      <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="space-y-6">
           <h1 className="text-5xl lg:text-6xl font-heading font-bold text-white">
-            Next-Gen <span className="text-cyber-blue">AI</span>
+            Unleash AI.
             <br />
-            <span className="text-cyber-blue">Agents</span> for Your
-            <br />
-            Business
+            Transform Your <span className="text-cyber-blue">Business</span>
+            {/* with Custom AI */}
           </h1>
           <p className="text-gray-400 font-mono text-lg max-w-xl">
-            Transform your workflow with our collection of specialized AI
-            agents. Each agent is crafted to deliver exceptional results in
-            their domain.
+            Revolutionise your business with cutting-edge AI—streamline
+            workflows, scale effortlessly, and stay ahead of the competition.
           </p>
           <button
             type="button"
             className="bg-cyber-blue text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
           >
-            Explore Agents
+            Book YOUR free consultation ⮕
           </button>
         </div>
 

@@ -26,9 +26,9 @@ export default function CalComEmbed() {
       config={{
         theme: "dark",
         styles: {
-          branding: { brandColor: "#00F0FF" },
-          body: { background: "#1a1a1a" },
-          eventTypeListItem: { background: "#2a2a2a", hover: "#3a3a3a" },
+          branding: "#00F0FF",
+          body: "#1a1a1a",
+          eventTypeListItem: "#2a2a2a",
         },
       }}
     />

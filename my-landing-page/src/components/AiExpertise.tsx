@@ -18,20 +18,18 @@ const AiExpertise = () => {
           <div className="space-y-6">
             <div className="space-y-1">
               <p className="text-gray-400 font-mono text-lg">
-                Transform your digital presence with our proven AI expertise.
-                With years of successful collaborations in the AI space, we've
-                mastered the art of leveraging artificial intelligence to build
-                compelling digital identities.
+                With 6+ years in tech—startups, freelancing, and solo
+                entrepreneurship—I understand the challenges of growing without
+                a team. You need solutions, not overhead.
               </p>
-            </div>
-
-            <div className="space-y-1">
-              <p className="text-gray-400 font-mono text-lg">
-                Having worked extensively with startups and early-stage
-                companies, we understand your challenges. Our AI-powered
-                solutions can help you achieve in months what traditionally took
-                years.
-              </p>
+              <br />
+              <div className="space-y-1">
+                <p className="text-gray-400 font-mono text-lg">
+                  That’s where we come in. From custom AI tools to tailored
+                  software, we help you automate, streamline, and scale—smart,
+                  fast, and stress-free.
+                </p>
+              </div>
             </div>
 
             <div className="pt-6">

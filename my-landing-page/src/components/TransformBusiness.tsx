@@ -4,36 +4,29 @@ import { Check } from "lucide-react";
 
 type Solution = {
   title: string;
+  subtitle: string;
   description: string;
-};
-
-type Stat = {
-  value: string;
-  label: string;
 };
 
 const solutions: Solution[] = [
   {
-    title: "10x Faster Development",
+    title: "Tailored Software",
+    subtitle: "Built Just for You",
     description:
-      "AI-powered automation handles repetitive tasks, delivering projects in days instead of months",
+      "Custom Solutions, Maximum Impact. When you work with us, you don't get cookie-cutter tools—you get software and AI solutions designed specifically for your needs.",
   },
   {
-    title: "60% Cost Reduction",
+    title: "AI Expertise",
+    subtitle: "Stay Ahead of the Curve",
     description:
-      "Streamlined processes and AI efficiency translate to significant cost savings",
+      "Proven Expertise, Industry Insights. With experience working alongside industry leaders in AI and tech, we bring the latest innovations and best practices to your project.",
   },
   {
-    title: "24/7 Intelligent Support",
+    title: "Effortless Scaling",
+    subtitle: "Cost-Effective Growth",
     description:
-      "Round-the-clock AI assistance with 97% customer satisfaction rate",
+      "Own It, Scale It, Control Costs. Our solutions are designed to grow with your business—seamlessly and affordably.",
   },
-];
-
-const stats: Stat[] = [
-  { value: "80%", label: "Development Time Saved" },
-  { value: "97%", label: "Customer Satisfaction" },
-  { value: "60%", label: "Cost Reduction" },
 ];
 
 const TransformBusiness = () => {
@@ -45,30 +38,11 @@ const TransformBusiness = () => {
         {/* Enhanced Header */}
         <div className="text-center space-y-6 mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-            Transform Your Business with{" "}
-            <span className="text-cyber-blue animate-pulse">
-              AI-Powered Solutions
-            </span>
+            Why Work With Us?
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Unlock the future of development with cutting-edge AI technology
-            that delivers results
+            The right tools. The right expertise. The right results.
           </p>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center group">
-              <div
-                className="text-4xl md:text-5xl font-bold text-cyber-blue mb-2 
-                group-hover:scale-110 transition-transform"
-              >
-                {stat.value}
-              </div>
-              <div className="text-gray-400 font-mono">{stat.label}</div>
-            </div>
-          ))}
         </div>
 
         {/* Three Feature Cards */}
@@ -91,16 +65,37 @@ const TransformBusiness = () => {
                 </div>
               </div>
               <h3
-                className="text-2xl font-bold text-white mb-3 
+                className="text-2xl font-bold text-white mb-2
                 group-hover:text-cyber-blue transition-colors"
               >
                 {solution.title}
               </h3>
+              <h4 className="text-lg font-semibold text-cyber-blue mb-3">
+                {solution.subtitle}
+              </h4>
               <p className="text-gray-400 font-mono leading-relaxed">
                 {solution.description}
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Added CTA Section */}
+        <div className="text-center mt-16">
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Ready to Scale Smarter?
+          </h3>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            Let&apos;s build solutions that give you the tools, expertise, and
+            scalability you need to thrive. Reach out today and let's make it
+            happen.
+          </p>
+          <button
+            type="button"
+            className="px-8 py-3 bg-cyber-blue hover:bg-cyber-blue/90 text-white rounded-lg font-semibold transition-colors"
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </section>
