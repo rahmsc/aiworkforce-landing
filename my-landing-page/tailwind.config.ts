@@ -18,6 +18,15 @@ export default {
         heading: ["var(--font-poppins)"],
         body: ["var(--font-roboto-mono)"],
       },
+      animation: {
+        "border-travel": "border-travel 4s linear infinite",
+      },
+      keyframes: {
+        "border-travel": {
+          "0%, 100%": { backgroundPosition: "10% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
     },
   },
   plugins: [],
