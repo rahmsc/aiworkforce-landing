@@ -31,7 +31,7 @@ const FAQ = () => {
           Frequently Asked <span className="text-cyber-blue">Questions</span>
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqs.map((faq, index) => (
             <div
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>

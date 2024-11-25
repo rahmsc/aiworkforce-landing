@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar } from "lucide-react";
+import CalComEmbed from "./CalComEmbed";
 
 const BookCall = () => {
   return (
@@ -14,15 +14,7 @@ const BookCall = () => {
           Book a free call to see what options work you and your business
         </p>
 
-        <button
-          type="button"
-          className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-cyber-blue hover:bg-cyber-blue/80 rounded-lg transition-colors duration-200 border border-cyber-blue/20"
-          onClick={() => {}}
-          aria-label="Schedule a consultation"
-        >
-          Book Your Free Call
-          <Calendar className="ml-2 w-6 h-6" />
-        </button>
+        <CalComEmbed />
       </div>
     </section>
   );
