@@ -73,29 +73,11 @@ const TransformBusiness = () => {
               <h4 className="text-lg font-semibold text-cyber-blue mb-3">
                 {solution.subtitle}
               </h4>
-              <p className="text-gray-400 font-mono leading-relaxed">
+              <p className="text-gray-400 font-mono leading-relaxed tracking-wider">
                 {solution.description}
               </p>
             </div>
           ))}
-        </div>
-
-        {/* Added CTA Section */}
-        <div className="text-center mt-16">
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Ready to Scale Smarter?
-          </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-            Let&apos;s build solutions that give you the tools, expertise, and
-            scalability you need to thrive. Reach out today and let's make it
-            happen.
-          </p>
-          <button
-            type="button"
-            className="px-8 py-3 bg-cyber-blue hover:bg-cyber-blue/90 text-white rounded-lg font-semibold transition-colors"
-          >
-            Get Started
-          </button>
         </div>
       </div>
     </section>

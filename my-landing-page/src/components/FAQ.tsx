@@ -8,19 +8,34 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What makes your software development team different?",
+      question: "What makes your software development house different?",
       answer:
-        "Our team combines deep technical expertise with years of experience and client businesses needs understanding. We focus on delivering tailored solutions that perfectly match your specific requirements.",
+        "We're not just another development agency. We specialize in helping entrepreneurs and small businesses create future-proof solutions through our 4-stage process: Design, Develop, Optimize, Deliver. Our boutique approach ensures personalized attention, agility, and custom-built solutions that align with your business goals.",
     },
     {
-      question: "Do you provide source code with the work?",
+      question: "I'm not technical—can I still work with you?",
       answer:
-        "Yes! You receive 100% ownership of all source code and associated files. The work is completely your property.",
+        "Absolutely! We love working with non-technical founders and business owners. Our team simplifies the complex and walks you through every step—from understanding your vision to delivering a fully functional product. We handle the tech so you can focus on growing your business.",
     },
     {
-      question: "How long does it take to complete a project?",
+      question: "How long does a typical project take?",
       answer:
-        "Project timelines vary based on complexity and scope. We provide detailed project plans and keep you updated at every step.",
+        "Timelines vary depending on your project's scope and complexity. On average, smaller projects take 6–12 weeks, while more complex solutions might take longer. We'll provide a detailed timeline during the initial planning phase and keep you updated at every step.",
+    },
+    {
+      question: "How much does it cost to build my project?",
+      answer:
+        "Costs depend on the features and complexity of your project. We offer transparent pricing and can help you prioritize features to fit your budget. Whether you're a startup or an established business, we'll work with you to deliver value-driven solutions without compromising quality.",
+    },
+    {
+      question: "Will I own the code and intellectual property?",
+      answer:
+        "Yes! Once the project is complete, you will retain full ownership of the code and intellectual property. You'll have complete control over your product, ensuring it's truly yours.",
+    },
+    {
+      question: "What if I need support after the project is completed?",
+      answer:
+        "We've got you covered! We offer post-launch support, including updates, troubleshooting, and optimization, to ensure your product continues to run smoothly. If you need to scale or make changes, we're here to help.",
     },
   ];
 

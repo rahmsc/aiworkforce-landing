@@ -12,7 +12,7 @@ const Testimonials = () => {
         "Working with Dan has been a game-changer. The AI workflows he built for us are next-level—what used to take hours now happens in seconds. We're producing more content than ever before, and it's had a massive impact on our productivity and reach.",
       author: "Peter Frost",
       role: "Founder",
-      company: "Hyperbaric HQ",
+      company: "HyperbaricHQ",
       rating: 5,
       image: "/testimonial-photos/pete.jpg",
       linkedin: "https://www.linkedin.com/in/peter-frost-06a12317b/",
@@ -59,7 +59,7 @@ const Testimonials = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
               className="group relative rounded-xl p-[2px] bg-gradient-to-r from-transparent via-cyber-blue to-transparent 

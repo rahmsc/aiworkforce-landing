@@ -20,11 +20,16 @@ export default {
       },
       animation: {
         "border-travel": "border-travel 4s linear infinite",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
       },
       keyframes: {
         "border-travel": {
           "0%, 100%": { backgroundPosition: "10% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "1" },
         },
       },
     },
