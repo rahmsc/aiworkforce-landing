@@ -4,8 +4,12 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Your App",
-  description: "Your app description",
+  title: "SOLVR",
+  description:
+    "Revolutionise your business with cutting-edge AI & custom software solutions",
+  icons: {
+    icon: "/solvr_logo.svg",
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
