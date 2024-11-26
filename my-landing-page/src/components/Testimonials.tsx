@@ -32,7 +32,7 @@ const Testimonials = () => {
         "I was overwhelmed trying to process a huge amount of data for a pitch. Dan stepped in and made it happen. His speed and attention to detail were unbelievable—we hit our deadline, and the final presentation blew our investors away.",
       author: "Hannah Biddell",
       role: "Lead Researcher",
-      company: "BioPsychAnalytics",
+      company: "Emergence Benefactors",
       rating: 5,
       image: "/testimonial-photos/hannah.jpg",
       linkedin: "https://www.linkedin.com/in/hannah-biddell/",
@@ -62,7 +62,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="group relative rounded-xl p-[2px] bg-gradient-to-r from-transparent via-cyber-blue to-transparent 
+              className="group h-[500px] relative rounded-xl p-[2px] bg-gradient-to-r from-transparent via-cyber-blue to-transparent 
                 hover:via-cyber-blue/80 transition-all duration-500
                 animate-border-travel bg-[length:200%_200%]"
             >
@@ -71,13 +71,13 @@ const Testimonials = () => {
                 rounded-xl animate-border-travel bg-[length:200%_200%] blur-sm opacity-50"
               />
 
-              <div className="relative bg-card-dark rounded-xl p-8">
-                <Quote className="w-8 h-8 text-cyber-blue mb-6" />
-                <p className="text-gray-400 font-mono mb-8">
+              <div className="relative flex flex-col h-full bg-card-dark rounded-xl p-8">
+                <Quote className="w-8 h-8 text-cyber-blue mb-6 flex-shrink-0" />
+                <p className="text-gray-400 font-mono flex-grow overflow-y-auto scrollbar-thin scrollbar-thumb-cyber-blue scrollbar-track-transparent">
                   {testimonial.quote}
                 </p>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex-shrink-0 pt-8">
                   <div className="flex items-start gap-4">
                     <Link
                       href={testimonial.linkedin}

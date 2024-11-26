@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { Sparkles } from "lucide-react";
 
 interface TeamMember {
   name: string;
@@ -20,13 +21,11 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
   const currentMember = teamMembers[currentIndex];
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  // Reset photo index when member changes
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     setPhotoIndex(0);
   }, [currentIndex]);
 
-  // Auto cycle through member's photos every 3 seconds
   useEffect(() => {
     if (currentMember.photos.length <= 1) return;
 
@@ -37,98 +36,83 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
     return () => clearInterval(interval);
   }, [currentMember.photos.length]);
 
+  const getNumericValue = (value: string) => {
+    const match = value.match(/\d+/);
+    return match ? Number.parseInt(match[0]) : 0;
+  };
+
+  const calculatePower = () => {
+    const totalPower = Object.values(currentMember.stats).reduce(
+      (sum, value) => sum + getNumericValue(value),
+      0
+    );
+    return Math.min(totalPower, 999); // Cap at 999
+  };
+
   return (
-    <div className="w-96">
-      <div className="relative">
-        {/* Glow Effect */}
-        <div className="absolute inset-0 bg-cyber-blue/5 rounded-2xl blur-3xl" />
+    <div className="w-[350px] animate-floating">
+      <div className="relative group pt-8">
+        {/* AI Agent Card Style */}
+        <div className="relative rounded-[20px] bg-gradient-to-br from-cyber-blue/20 to-cyber-blue/5 p-3">
+          {/* Reduced opacity of holographic effect */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(66,220,255,0.1),transparent)] animate-[glow-pulse_8s_ease-in-out_infinite] rounded-[20px]" />
 
-        <div className="relative rounded-2xl p-6 bg-navy-800/50 border border-cyber-blue/20 backdrop-blur-sm h-[600px]">
-          {/* AI-OPS Badge */}
-          <div className="absolute top-6 left-6">
-            <div className="bg-cyber-blue/10 text-cyber-blue font-bold py-1 px-4 rounded-md transform -rotate-6 border border-cyber-blue/20">
-              AI•OPS
+          <div className="relative bg-navy-800/30 rounded-lg p-4 backdrop-blur-sm border border-cyber-blue/20">
+            {/* Header Section */}
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="text-2xl font-bold text-white">
+                {currentMember.name}
+              </h3>
+              <div className="text-cyber-blue font-bold">
+                PWR {calculatePower()}
+              </div>
             </div>
-          </div>
 
-          {/* Premium Badge */}
-          <div className="absolute top-6 right-6">
-            <div className="text-cyber-blue font-mono font-semibold text-sm">
-              PREMIUM AI AGENT
-            </div>
-          </div>
-
-          {/* Agent Photo */}
-          <div className="mt-16 mb-8 flex justify-center relative group">
-            <div className="w-40 h-40 rounded-3xl bg-navy-900/50 border-4 border-cyber-blue/20 overflow-hidden backdrop-blur-sm">
+            {/* Image Section with Cyber Effect */}
+            <div className="relative h-48 mb-4 rounded-lg overflow-hidden bg-[radial-gradient(ellipse_at_center,#1e3b70,#090a0f)]">
+              <div className="absolute inset-0 bg-[url('/placeholder.svg?height=200&width=200')] opacity-30 animate-pulse" />
               <Image
                 src={currentMember.photos[photoIndex]}
-                alt={`${currentMember.name} profile photo ${photoIndex + 1}`}
-                width={220}
-                height={220}
-                className="w-full h-full object-cover transition-opacity duration-300"
+                alt={`${currentMember.name} profile`}
+                fill
+                className="object-cover"
               />
+              <Sparkles className="absolute top-2 right-2 text-cyber-blue h-6 w-6 animate-pulse" />
             </div>
-            {currentMember.photos.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setPhotoIndex(
-                      (prev) =>
-                        (prev - 1 + currentMember.photos.length) %
-                        currentMember.photos.length
-                    )
-                  }
-                  className="absolute left-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label={`Previous photo of ${currentMember.name}`}
+
+            {/* AI Agent Info */}
+            <div className="text-sm text-cyber-blue mb-4 border-b border-cyber-blue/20 pb-2">
+              <span className="text-md font-semibold capitalize tracking-wider">
+                {currentMember.position}
+              </span>{" "}
+              • <br />
+              Level {Number.parseInt(currentMember.cardNumber)} AI Agent
+            </div>
+
+            {/* Stats Section */}
+            <div className="space-y-3">
+              {Object.entries(currentMember.stats).map(([key, value]) => (
+                <div
+                  key={key}
+                  className="bg-navy-900/50 rounded p-2 flex justify-between items-center"
                 >
-                  ←
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setPhotoIndex(
-                      (prev) => (prev + 1) % currentMember.photos.length
-                    )
-                  }
-                  className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label={`Next photo of ${currentMember.name}`}
-                >
-                  →
-                </button>
-              </>
-            )}
-          </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-cyber-blue/20 flex items-center justify-center text-cyber-blue">
+                      {key.split(" ")[0]}
+                    </div>
+                    <span className="text-white font-medium">
+                      {key.split(" ").slice(1).join(" ")}
+                    </span>
+                  </div>
+                  <span className="text-cyber-blue font-bold">{value}</span>
+                </div>
+              ))}
+            </div>
 
-          {/* Agent Info */}
-          <div className="bg-navy-900/50 -mx-6 p-4 backdrop-blur-sm border-y border-cyber-blue/20">
-            <h3 className="text-3xl font-bold text-white mb-1">
-              {currentMember.name}
-            </h3>
-            <p className="font-mono text-cyber-blue">
-              {currentMember.position}
-            </p>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="mt-6 grid grid-cols-2 gap-4 font-mono mb-8">
-            {Object.entries(currentMember.stats).map(([key, value], index) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-              <div key={index} className="flex flex-col h-20 justify-center">
-                <span className="text-gray-400 font-bold text-sm text-center">
-                  {key}
-                </span>
-                <span className="text-cyber-blue text-lg text-center mt-1">
-                  {value}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Card Number */}
-          <div className="absolute bottom-6 right-6 font-mono text-cyber-blue text-sm">
-            #{currentMember.cardNumber}
+            {/* Card Number */}
+            <div className="absolute bottom-2 right-4 text-cyber-blue/60 text-sm">
+              #{currentMember.cardNumber}
+            </div>
           </div>
         </div>
       </div>

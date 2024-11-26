@@ -21,6 +21,7 @@ export default {
       animation: {
         "border-travel": "border-travel 4s linear infinite",
         "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+        floating: "float 3s ease-in-out infinite",
       },
       keyframes: {
         "border-travel": {
@@ -28,8 +29,15 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
         },
         "glow-pulse": {
-          "0%, 100%": { opacity: "0.7" },
+          "0%, 100%": {
+            opacity: "0.8",
+            backgroundPosition: "center",
+          },
           "50%": { opacity: "1" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
         },
       },
     },

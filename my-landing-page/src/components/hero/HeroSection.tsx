@@ -1,7 +1,7 @@
 "use client";
 
 import AgentCard from "./AgentCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AnimatedBackground from "./AnimatedBackground";
 
 type TeamMember = {
@@ -86,6 +86,8 @@ const HeroSection = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [zTranslate, setZTranslate] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Auto-cycle effect
   useEffect(() => {
@@ -107,7 +109,7 @@ const HeroSection = () => {
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setTypedWord(word.substring(0, typedWord.length + 1));
-        setTypingSpeed(150);
+        setTypingSpeed(300);
 
         if (typedWord === word) {
           setTypingSpeed(2000); // Pause at end
@@ -127,18 +129,29 @@ const HeroSection = () => {
     return () => clearTimeout(timer);
   }, [typedWord, isDeleting, wordIndex, typingSpeed]);
 
-  const handlePrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
-  };
+  // Update the scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-  const handleNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
-  };
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollProgress =
+        1 - rect.bottom / (window.innerHeight + rect.height);
+
+      // Calculate z-translation between 0 and 30 based on scroll
+      const newZ = Math.max(0, Math.min(30, scrollProgress * 30));
+      setZTranslate(newZ);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 py-20 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center px-6 py-20 overflow-hidden"
+    >
       <AnimatedBackground />
 
       {/* Updated gradient overlay with slower animation */}
@@ -198,58 +211,25 @@ const HeroSection = () => {
         {/* Right Content - Updated with centered card and circular buttons */}
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center justify-center gap-8 w-full max-w-[560px]">
-            <button
-              type="button"
-              onClick={handlePrevious}
-              aria-label="Previous agent"
-              className="w-12 h-12 rounded-full flex items-center justify-center border border-cyber-blue/20 bg-cyber-blue/30 text-cyber-blue hover:bg-cyber-blue/50 hover:text-white transition-all shrink-0"
+            <div
+              className="w-[384px] shrink-0"
+              style={{
+                perspective: "1000px",
+                transformStyle: "preserve-3d",
+              }}
             >
-              {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <div
+                style={{
+                  transform: `translateZ(${zTranslate}px)`,
+                  transition: "transform 0.3s ease-out",
+                }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
+                <AgentCard
+                  teamMembers={teamMembers}
+                  currentIndex={currentIndex}
                 />
-              </svg>
-            </button>
-
-            <div className="w-[384px] shrink-0">
-              <AgentCard
-                teamMembers={teamMembers}
-                currentIndex={currentIndex}
-              />
+              </div>
             </div>
-
-            <button
-              type="button"
-              onClick={handleNext}
-              aria-label="Next agent"
-              className="w-12 h-12 rounded-full flex items-center justify-center border border-cyber-blue/20 bg-cyber-blue/30 text-cyber-blue hover:bg-cyber-blue/50 hover:text-white transition-all shrink-0"
-            >
-              {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
           </div>
 
           {/* Indicator Dots */}
