@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import LogoSvg from "./LogoSvg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +30,22 @@ const Navbar = () => {
         ${visible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20">
+          {/* Logo with Text */}
           <Link
             href="/"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
             aria-label="Home"
+            tabIndex={0}
           >
-            <span className="text-xl font-bold text-white">Your Logo</span>
+            <LogoSvg width={45} height={60} />
+            <span
+              className={
+                "font-iceland text-gray-300 text-2xl md:text-3xl tracking-widest pl-4"
+              }
+            >
+              SOLVR
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

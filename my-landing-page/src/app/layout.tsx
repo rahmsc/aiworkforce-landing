@@ -1,4 +1,4 @@
-import { poppins, robotoMono } from "./fonts/fonts";
+import { poppins, robotoMono, iceland } from "./fonts/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={`${poppins.variable} ${robotoMono.variable}`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${robotoMono.variable} ${iceland.className}`}
+    >
       <body className="font-body">
         <Navbar />
         {children}

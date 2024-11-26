@@ -16,7 +16,7 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: "Sam",
-    position: "Social Media Strategist",
+    position: "SOCIAL MEDIA STRATEGIST",
     photos: ["/assets/agent-headshots/2.jpg"],
     stats: {
       "🏆 Engagement Rate": "⬆ 22%",
@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Alex",
-    position: "Customer Engagement Specialist",
+    position: "CUSTOMER ENGAGEMENT SPECIALIST",
     photos: ["/assets/agent-headshots/1.jpg"],
     stats: {
       "⏱️ Response Time": "30 secs",
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
 
   {
     name: "Taylor",
-    position: "Knowledge Base Manager",
+    position: "KNOWLEDGE BASE MANAGER",
     photos: ["/assets/agent-headshots/4.jpg"],
     stats: {
       "✔️ Accuracy": "99.5%",
@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Jordan",
-    position: "Productivity Coach",
+    position: "PRODUCTIVITY COACH",
     photos: ["/assets/agent-headshots/5.jpg"],
     stats: {
       "⏱️ Time Saved": "40hrs/mo",
@@ -65,7 +65,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Casey",
-    position: "Workflow Automation Expert",
+    position: "WORKFLOW AUTOMATION EXPERT",
     photos: ["/assets/agent-headshots/6.jpg"],
     stats: {
       "🔄 Processes Automated": "100+",
@@ -185,13 +185,13 @@ const HeroSection = () => {
       {/* Main content - update z-index to be above new background elements */}
       <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-6">
+        <div className="space-y-6 pl-20">
           <h1 className="text-5xl lg:text-6xl font-heading font-bold text-white">
             Unleash AI.
             <br />
             Transform Your
             <br />
-            <span className="text-cyber-blue">
+            <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
               {typedWord}
               <span className="animate-pulse">|</span>
             </span>
@@ -202,7 +202,7 @@ const HeroSection = () => {
           </p>
           <button
             type="button"
-            className="bg-cyber-blue text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
+            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70  text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
           >
             Schedule YOUR Free Consultation ⮕
           </button>
@@ -240,7 +240,7 @@ const HeroSection = () => {
                 // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={index}
                 onClick={() => {
-                  setIsAutoPlaying(false);
+                  setIsAutoPlaying(true);
                   setCurrentIndex(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-all ${

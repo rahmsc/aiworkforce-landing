@@ -26,333 +26,222 @@ const BusinessPotential = () => {
               xmlns="http://www.w3.org/2000/svg"
               className="w-full h-full"
             >
-              {/* Background Grid */}
-              <pattern
-                id="grid"
-                x="0"
-                y="0"
-                width="20"
-                height="20"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M20 0L0 0 0 20"
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                  className="text-cyber-blue/10"
-                />
-              </pattern>
-              <rect width="200" height="200" fill="url(#grid)" />
+              {/* Enhanced Definitions */}
+              <defs>
+                {/* Hexagonal Grid Pattern */}
+                <pattern
+                  id="hexGrid"
+                  width="20"
+                  height="17.32"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M10 0l8.66 5v10L10 20l-8.66-5V5z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="0.2"
+                    className="text-cyber-blue/5"
+                  />
+                </pattern>
 
-              {/* Main Chip Body */}
+                {/* Radial Pulse Gradient */}
+                <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" className="text-cyber-blue/30" />
+                  <stop offset="70%" className="text-cyber-blue/10" />
+                  <stop offset="100%" className="text-cyber-blue/0" />
+                </radialGradient>
+
+                {/* Enhanced Glow Filter */}
+                <filter
+                  id="enhancedGlow"
+                  x="-20%"
+                  y="-20%"
+                  width="140%"
+                  height="140%"
+                >
+                  <feGaussianBlur stdDeviation="3" result="blur1" />
+                  <feGaussianBlur stdDeviation="1" result="blur2" />
+                  <feMerge>
+                    <feMergeNode in="blur1" />
+                    <feMergeNode in="blur2" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+
+                {/* Neural Network Lines */}
+                <pattern
+                  id="neuralNet"
+                  width="40"
+                  height="40"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle
+                    r="0.5"
+                    cx="20"
+                    cy="20"
+                    className="fill-cyber-blue/10"
+                  />
+                  <path
+                    d="M0 20h40M20 0v40"
+                    className="stroke-cyber-blue/5"
+                    strokeWidth="0.2"
+                  />
+                </pattern>
+              </defs>
+
+              {/* Animated Background Layers */}
+              <rect width="200" height="200" fill="url(#hexGrid)">
+                <animate
+                  attributeName="opacity"
+                  values="0.8;0.4;0.8"
+                  dur="4s"
+                  repeatCount="indefinite"
+                />
+              </rect>
               <rect
-                x="50"
-                y="50"
-                width="100"
-                height="100"
-                className="fill-cyber-blue/20 stroke-cyber-blue"
-                strokeWidth="2"
+                width="200"
+                height="200"
+                fill="url(#neuralNet)"
+                opacity="0.3"
               >
                 <animate
-                  attributeName="stroke-opacity"
-                  values="1;0.5;1"
-                  dur="2s"
+                  attributeName="opacity"
+                  values="0.3;0.1;0.3"
+                  dur="3s"
                   repeatCount="indefinite"
                 />
               </rect>
 
-              {/* Chip Connectors */}
-              {/* Left */}
-              <line
-                x1="20"
-                y1="70"
-                x2="50"
-                y2="70"
-                className="stroke-cyber-blue"
-                strokeWidth="2"
+              {/* Rotating Outer Ring */}
+              <circle
+                cx="100"
+                cy="100"
+                r="80"
+                className="stroke-cyber-blue/20"
+                fill="none"
+                strokeWidth="0.5"
+                strokeDasharray="2 4"
               >
-                <animate
-                  attributeName="x2"
-                  values="50;45;50"
-                  dur="1s"
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 100 100"
+                  to="-360 100 100"
+                  dur="30s"
                   repeatCount="indefinite"
                 />
-              </line>
-              <line
-                x1="20"
-                y1="130"
-                x2="50"
-                y2="130"
-                className="stroke-cyber-blue"
-                strokeWidth="2"
-              >
-                <animate
-                  attributeName="x2"
-                  values="50;45;50"
-                  dur="1s"
-                  repeatCount="indefinite"
-                />
-              </line>
+              </circle>
 
-              {/* Right */}
-              <line
-                x1="150"
-                y1="70"
-                x2="180"
-                y2="70"
-                className="stroke-cyber-blue"
-                strokeWidth="2"
-              >
-                <animate
-                  attributeName="x1"
-                  values="150;155;150"
-                  dur="1s"
-                  repeatCount="indefinite"
-                />
-              </line>
-              <line
-                x1="150"
-                y1="130"
-                x2="180"
-                y2="130"
-                className="stroke-cyber-blue"
-                strokeWidth="2"
-              >
-                <animate
-                  attributeName="x1"
-                  values="150;155;150"
-                  dur="1s"
-                  repeatCount="indefinite"
-                />
-              </line>
-
-              {/* Chip Internal Circuit Lines */}
-              <path
-                d="M60 60 L140 60 M60 80 L140 80 M60 100 L140 100 M60 120 L140 120 M60 140 L140 140"
-                className="stroke-cyber-blue/30"
-                strokeWidth="1"
-              />
-              <path
-                d="M60 60 L60 140 M80 60 L80 140 M100 60 L100 140 M120 60 L120 140 M140 60 L140 140"
-                className="stroke-cyber-blue/30"
-                strokeWidth="1"
-              />
-
-              {/* Enhanced Curved Energy Lines */}
-              <g className="text-cyber-blue/60">
-                {/* Top Energy Curves */}
-                <path
-                  d="M80 50 Q90 20 100 50"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M80 50 Q90 20 100 50;M80 50 Q90 10 100 50;M80 50 Q90 20 100 50"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-                <path
-                  d="M100 50 Q110 30 120 50"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M100 50 Q110 30 120 50;M100 50 Q110 15 120 50;M100 50 Q110 30 120 50"
-                    dur="2.5s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-
-                {/* Bottom Energy Curves */}
-                <path
-                  d="M80 150 Q90 180 100 150"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M80 150 Q90 180 100 150;M80 150 Q90 190 100 150;M80 150 Q90 180 100 150"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-                <path
-                  d="M100 150 Q110 170 120 150"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M100 150 Q110 170 120 150;M100 150 Q110 185 120 150;M100 150 Q110 170 120 150"
-                    dur="2.5s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-
-                {/* Side Energy Curves */}
-                <path
-                  d="M50 80 Q20 90 50 100"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M50 80 Q20 90 50 100;M50 80 Q10 90 50 100;M50 80 Q20 90 50 100"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-                <path
-                  d="M150 80 Q180 90 150 100"
-                  className="stroke-current"
-                  fill="none"
-                  strokeWidth="1"
-                >
-                  <animate
-                    attributeName="d"
-                    values="M150 80 Q180 90 150 100;M150 80 Q190 90 150 100;M150 80 Q180 90 150 100"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </g>
-
-              {/* Floating Energy Particles along Curves */}
-              <g className="text-cyber-blue">
+              {/* Dynamic Core Structure */}
+              <g filter="url(#enhancedGlow)">
+                {/* Hexagonal Core */}
                 {[0, 60, 120, 180, 240, 300].map((angle) => (
-                  <circle key={angle} r="1.5" className="fill-current">
-                    <animateMotion
-                      path="M80 50 Q90 20 100 50"
-                      dur={`${2 + (angle % 3)}s`}
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="opacity"
-                      values="0;1;0"
-                      dur="2s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                ))}
-              </g>
-
-              {/* Pulsing Glow Points */}
-              <g className="text-cyber-blue">
-                {[45, 135, 225, 315].map((angle) => (
-                  <circle
+                  <path
                     key={angle}
-                    cx={100 + 60 * Math.cos((angle * Math.PI) / 180)}
-                    cy={100 + 60 * Math.sin((angle * Math.PI) / 180)}
-                    r="2"
-                    className="fill-current"
-                  >
-                    <animate
-                      attributeName="opacity"
-                      values="0;1;0"
-                      dur="1.5s"
-                      repeatCount="indefinite"
-                      begin={`${angle / 360}s`}
-                    />
-                    <animate
-                      attributeName="r"
-                      values="2;3;2"
-                      dur="2s"
-                      repeatCount="indefinite"
-                      begin={`${angle / 360}s`}
-                    />
-                  </circle>
-                ))}
-              </g>
-
-              {/* AI Text */}
-              <text
-                x="100"
-                y="105"
-                className="text-3xl font-bold fill-cyber-blue text-center"
-                textAnchor="middle"
-              >
-                AI
-                <animate
-                  attributeName="opacity"
-                  values="1;0.5;1"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </text>
-
-              {/* Pulsing Energy Effects */}
-              <g className="text-cyber-blue">
-                {/* Top Pulse */}
-                <circle cx="100" cy="30" r="2" className="fill-current">
-                  <animate
-                    attributeName="opacity"
-                    values="1;0;1"
-                    dur="1.5s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values="50;20;50"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-
-                {/* Bottom Pulse */}
-                <circle cx="100" cy="170" r="2" className="fill-current">
-                  <animate
-                    attributeName="opacity"
-                    values="1;0;1"
-                    dur="1.5s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values="150;180;150"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              </g>
-
-              {/* Energy Particles */}
-              <g className="text-cyber-blue/50">
-                {[0, 60, 120, 180, 240, 300].map((angle) => (
-                  <circle
-                    key={angle}
-                    cx="100"
-                    cy="100"
-                    r="1"
-                    className="fill-current"
+                    d={"M100 70l17.32 10v20L100 110l-17.32-10V80z"}
+                    className="fill-cyber-blue/5 stroke-cyber-blue/40"
+                    strokeWidth="0.5"
                     transform={`rotate(${angle} 100 100)`}
                   >
                     <animate
-                      attributeName="opacity"
-                      values="1;0;1"
-                      dur="1.5s"
+                      attributeName="stroke-opacity"
+                      values="0.4;0.8;0.4"
+                      dur="3s"
                       repeatCount="indefinite"
+                      begin={`${angle / 360}s`}
                     />
-                  </circle>
+                  </path>
                 ))}
               </g>
+
+              {/* Energy Flow Paths */}
+              <g className="text-cyber-blue/30">
+                {[0, 72, 144, 216, 288].map((angle) => (
+                  <path
+                    key={angle}
+                    d={`M100 40Q130 70,100 100Q70 130,100 160`}
+                    className="stroke-current"
+                    fill="none"
+                    strokeWidth="0.5"
+                    transform={`rotate(${angle} 100 100)`}
+                  >
+                    <animate
+                      attributeName="d"
+                      values="M100 40Q130 70,100 100Q70 130,100 160;
+                              M100 40Q140 70,100 100Q60 130,100 160;
+                              M100 40Q130 70,100 100Q70 130,100 160"
+                      dur="5s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                ))}
+              </g>
+
+              {/* Quantum Particle Effects */}
+              {[...Array(20)].map((_, i) => (
+                <g key={i} className="text-cyber-blue">
+                  <circle r="0.8" className="fill-current">
+                    <animateMotion
+                      path="M0,0 A40,40 0 1,1 0,80 A40,40 0 1,1 0,0"
+                      dur={`${3 + (i % 5)}s`}
+                      repeatCount="indefinite"
+                      begin={`-${i * 0.2}s`}
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0;1;0"
+                      dur="2s"
+                      repeatCount="indefinite"
+                      begin={`-${i * 0.1}s`}
+                    />
+                  </circle>
+                </g>
+              ))}
+
+              {/* Central AI Text */}
+              <g filter="url(#enhancedGlow)">
+                <text
+                  x="100"
+                  y="105"
+                  className="text-4xl font-bold fill-cyber-blue text-center"
+                  textAnchor="middle"
+                >
+                  AI
+                  <animate
+                    attributeName="opacity"
+                    values="1;0.6;1"
+                    dur="2.5s"
+                    repeatCount="indefinite"
+                  />
+                </text>
+              </g>
+
+              {/* Data Stream Effects */}
+              {[0, 120, 240].map((angle) => (
+                <path
+                  key={angle}
+                  d="M60 100Q100 60,140 100Q100 140,60 100"
+                  className="stroke-cyber-blue/20"
+                  fill="none"
+                  strokeWidth="0.3"
+                  transform={`rotate(${angle} 100 100)`}
+                >
+                  <animate
+                    attributeName="d"
+                    values="M60 100Q100 60,140 100Q100 140,60 100;
+                            M60 100Q100 50,140 100Q100 150,60 100;
+                            M60 100Q100 60,140 100Q100 140,60 100"
+                    dur="6s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+              ))}
             </svg>
 
-            {/* Enhanced Outer Glow Effect */}
-            <div className="absolute inset-0 bg-cyber-blue/5 blur-2xl rounded-full">
-              <animate
-                attributeName="opacity"
-                values="0.3;0.7;0.3"
-                dur="3s"
-                repeatCount="indefinite"
-              />
+            {/* Enhanced Ambient Glow */}
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-cyber-blue/5 blur-3xl rounded-full animate-pulse" />
+              <div className="absolute inset-10 bg-cyber-blue/3 blur-2xl rounded-full animate-pulse [animation-delay:0.5s]" />
             </div>
           </div>
         </div>
