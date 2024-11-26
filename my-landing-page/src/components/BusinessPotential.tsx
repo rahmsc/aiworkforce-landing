@@ -254,7 +254,7 @@ const BusinessPotential = () => {
               id="business-potential-title"
               className="text-3xl md:text-4xl font-bold text-white leading-tight"
             >
-              Is AI Still on Your{" "}
+              Is AI Still on Your <br />
               <span className="text-cyber-blue">To-Do List?</span>
             </h2>
           </div>

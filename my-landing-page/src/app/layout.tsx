@@ -2,6 +2,8 @@ import { poppins, robotoMono, iceland } from "./fonts/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { HotJar } from "@/components/Hotjar";
 
 export const metadata: Metadata = {
   title: "SOLVR",
@@ -22,6 +24,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <Navbar />
         {children}
       </body>
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ""} />
+      <HotJar />
     </html>
   );
 };

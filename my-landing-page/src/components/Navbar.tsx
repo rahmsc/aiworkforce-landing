@@ -54,24 +54,24 @@ const Navbar = () => {
               href="#services"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
-              Services
+              Who We Are
             </Link>
             <Link
               href="#about"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
-              About
+              What We Do
             </Link>
             <Link
               href="#contact"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
-              Contact
+              Testimonials
             </Link>
 
             {/* CTA Button */}
             <Link
-              href="/contact"
+              href="/"
               className="bg-cyber-blue text-black px-4 py-2 rounded-md 
                 hover:bg-cyber-blue/80 transition-colors"
             >
