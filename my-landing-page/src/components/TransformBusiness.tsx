@@ -31,7 +31,10 @@ const solutions: Solution[] = [
 
 const TransformBusiness = () => {
   return (
-    <section className="bg-background py-24 px-4 md:px-8 relative overflow-hidden">
+    <section
+      id="whatwedo"
+      className="bg-background py-24 px-4 md:px-8 relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/10 to-transparent opacity-20" />
 
       <div className="max-w-7xl mx-auto">
@@ -70,7 +73,7 @@ const TransformBusiness = () => {
               >
                 {solution.title}
               </h3>
-              <h4 className="text-lg font-semibold text-cyber-blue mb-3">
+              <h4 className="text-lg font-semibold bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
                 {solution.subtitle}
               </h4>
               <p className="text-gray-400 font-mono leading-relaxed tracking-wider">

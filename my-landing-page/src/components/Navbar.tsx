@@ -51,19 +51,19 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="#services"
+              href="#who"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
               Who We Are
             </Link>
             <Link
-              href="#about"
+              href="#whatwedo"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
               What We Do
             </Link>
             <Link
-              href="#contact"
+              href="#testimonials"
               className="text-gray-300 hover:text-cyber-blue transition-colors"
             >
               Testimonials
@@ -71,8 +71,8 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <Link
-              href="/"
-              className="bg-cyber-blue text-black px-4 py-2 rounded-md 
+              href="#bookcall"
+              className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70  text-black px-4 py-2 rounded-md 
                 hover:bg-cyber-blue/80 transition-colors"
             >
               Book YOUR Call
@@ -99,25 +99,25 @@ const Navbar = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
-              href="#services"
+              href="#who"
               className="block px-3 py-2 text-gray-300 hover:text-cyber-blue 
                 transition-colors"
             >
-              Services
+              Who We Are
             </Link>
             <Link
-              href="#about"
+              href="#whatwedo"
               className="block px-3 py-2 text-gray-300 hover:text-cyber-blue 
                 transition-colors"
             >
-              About
+              What We Do
             </Link>
             <Link
-              href="#contact"
+              href="#testimonials"
               className="block px-3 py-2 text-gray-300 hover:text-cyber-blue 
                 transition-colors"
             >
-              Contact
+              Testimonials
             </Link>
           </div>
         </div>

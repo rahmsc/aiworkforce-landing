@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 const BookCall = () => {
   return (
-    <section className="relative bg-gradient-to-b from-background to-background/95 py-32 px-4 md:px-8 overflow-hidden">
+    <section
+      id="bookcall"
+      className="relative bg-gradient-to-b from-background to-background/95 py-32 px-4 md:px-8 overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-cyber-blue/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-cyber-blue/5 rounded-full blur-3xl" />

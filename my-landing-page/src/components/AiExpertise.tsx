@@ -3,14 +3,16 @@ import Image from "next/image";
 
 const AiExpertise = () => {
   return (
-    <section className="bg-background py-24 px-4 md:px-8">
+    <section id="who" className="bg-background py-24 px-4 md:px-8">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Left Column - Content */}
         <div className="space-y-8 max-w-xl">
           <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Accelerate Growth with{" "}
-              <span className="text-cyber-blue">AI Expertise</span>
+              <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+                SOLVR
+              </span>
             </h2>
           </div>
 

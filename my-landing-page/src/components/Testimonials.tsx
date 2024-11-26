@@ -52,10 +52,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-background py-32 px-8 md:px-16">
+    <section id="testimonials" className="bg-background py-32 px-8 md:px-16">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Client <span className="text-cyber-blue">Testimonials</span>
+          Client{" "}
+          <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+            Testimonials
+          </span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

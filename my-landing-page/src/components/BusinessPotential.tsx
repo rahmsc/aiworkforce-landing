@@ -255,7 +255,9 @@ const BusinessPotential = () => {
               className="text-3xl md:text-4xl font-bold text-white leading-tight"
             >
               Is AI Still on Your <br />
-              <span className="text-cyber-blue">To-Do List?</span>
+              <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+                To-Do List?
+              </span>
             </h2>
           </div>
 

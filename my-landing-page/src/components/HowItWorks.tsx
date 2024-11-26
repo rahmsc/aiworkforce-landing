@@ -38,7 +38,10 @@ const HowItWorks = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-white text-center mb-24"
         >
-          How It <span className="text-cyber-blue">Works</span>
+          How It{" "}
+          <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+            Works
+          </span>
         </motion.h2>
 
         <div className="relative flex flex-col md:block max-w-5xl mx-auto">
