@@ -187,9 +187,9 @@ const HeroSection = () => {
         {/* Left Content */}
         <div className="space-y-6 pl-20">
           <h1 className="text-5xl lg:text-6xl font-heading font-bold text-white">
-            Unleash AI.
-            <br />
-            Transform Your
+            {/* Embrace AI.
+              <br /> */}
+            Future-Proof Your
             <br />
             <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
               {typedWord}
@@ -197,14 +197,15 @@ const HeroSection = () => {
             </span>
           </h1>
           <p className="text-gray-400 font-mono text-lg max-w-xl">
-            Revolutionise your business with cutting-edge AI—streamline
-            workflows, scale effortlessly, and stay ahead of the competition.
+            Propel your business into the future with custom AI
+            solutions—automate tasks, expand effortlessly, and outpace your
+            competition.
           </p>
           <button
             type="button"
-            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70  text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
+            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
           >
-            Schedule YOUR Free Consultation ⮕
+            Book Your Free AI Consultation ⮕
           </button>
         </div>
 

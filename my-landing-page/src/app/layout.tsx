@@ -23,9 +23,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className="font-body">
         <Navbar />
         {children}
+        <HotJar />
+        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ""} />
       </body>
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ""} />
-      <HotJar />
     </html>
   );
 };

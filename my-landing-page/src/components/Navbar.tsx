@@ -44,7 +44,7 @@ const Navbar = () => {
                 "font-iceland text-gray-300 text-2xl md:text-3xl tracking-widest pl-4"
               }
             >
-              SOLVR
+              solvr
             </span>
           </Link>
 

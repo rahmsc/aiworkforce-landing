@@ -1,12 +1,12 @@
 "use client";
 
-import { X } from "lucide-react";
+import { Brain, Square } from "lucide-react";
 
 const challenges = [
-  "Automating time-consuming tasks",
-  "Improving customer experiences with AI",
-  "Unlocking insights from data",
-  "Scaling workflows with automation",
+  "Building a custom chatbot to engage your customers",
+  "Automating repetitive tasks to save time",
+  "Integrating AI into your existing workflows",
+  "Unlocking hidden insights from your data",
 ];
 
 const BusinessPotential = () => {
@@ -15,262 +15,451 @@ const BusinessPotential = () => {
       className="bg-background py-32 px-4 md:px-8"
       aria-labelledby="business-potential-title"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-        {/* Left Column - SVG (was previously on right) */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
+        {/* Left Column - SVG */}
         <div className="flex justify-center order-2 md:order-1">
-          <div className="relative w-48 h-48 md:w-72 md:h-72">
-            {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
+          <div className="relative w-72 h-72 md:w-[450px] md:h-[450px]">
+            {/* biome-ignore lint/a11y/noSvgWithoutTitle: SVG is decorative */}
             <svg
               viewBox="0 0 200 200"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full"
+              className="w-full h-full relative z-10"
             >
-              {/* Enhanced Definitions */}
               <defs>
-                {/* Hexagonal Grid Pattern */}
-                <pattern
-                  id="hexGrid"
-                  width="20"
-                  height="17.32"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M10 0l8.66 5v10L10 20l-8.66-5V5z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.2"
-                    className="text-cyber-blue/5"
-                  />
-                </pattern>
-
-                {/* Radial Pulse Gradient */}
-                <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" className="text-cyber-blue/30" />
-                  <stop offset="70%" className="text-cyber-blue/10" />
-                  <stop offset="100%" className="text-cyber-blue/0" />
-                </radialGradient>
-
-                {/* Enhanced Glow Filter */}
                 <filter
-                  id="enhancedGlow"
-                  x="-20%"
-                  y="-20%"
-                  width="140%"
-                  height="140%"
+                  id="nodeGlow"
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
                 >
-                  <feGaussianBlur stdDeviation="3" result="blur1" />
-                  <feGaussianBlur stdDeviation="1" result="blur2" />
+                  <feGaussianBlur stdDeviation="2" result="blur" />
+                  <feColorMatrix
+                    in="blur"
+                    type="matrix"
+                    values="0 0 0 0 0   0 1 0 0 0  0 0 1 0 0  0 0 0 8 -4"
+                  />
                   <feMerge>
-                    <feMergeNode in="blur1" />
-                    <feMergeNode in="blur2" />
+                    <feMergeNode />
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
 
-                {/* Neural Network Lines */}
-                <pattern
-                  id="neuralNet"
-                  width="40"
-                  height="40"
-                  patternUnits="userSpaceOnUse"
+                <path id="flowPath1" d="M40,100 C60,60 140,140 160,100" />
+                <path id="flowPath2" d="M40,100 C60,140 140,60 160,100" />
+
+                <filter
+                  id="brainGlow"
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
                 >
-                  <circle
-                    r="0.5"
-                    cx="20"
-                    cy="20"
-                    className="fill-cyber-blue/10"
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feColorMatrix
+                    in="blur"
+                    type="matrix"
+                    values="0 0 0 0 0.5   0 1 0 0 1  0 0 1 0 0.5  0 0 0 10 -5"
                   />
-                  <path
-                    d="M0 20h40M20 0v40"
-                    className="stroke-cyber-blue/5"
-                    strokeWidth="0.2"
-                  />
-                </pattern>
+                  <feMerge>
+                    <feMergeNode />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
               </defs>
 
-              {/* Animated Background Layers */}
-              <rect width="200" height="200" fill="url(#hexGrid)">
-                <animate
-                  attributeName="opacity"
-                  values="0.8;0.4;0.8"
-                  dur="4s"
-                  repeatCount="indefinite"
-                />
-              </rect>
-              <rect
-                width="200"
-                height="200"
-                fill="url(#neuralNet)"
-                opacity="0.3"
-              >
-                <animate
-                  attributeName="opacity"
-                  values="0.3;0.1;0.3"
-                  dur="3s"
-                  repeatCount="indefinite"
-                />
-              </rect>
-
-              {/* Rotating Outer Ring */}
-              <circle
-                cx="100"
-                cy="100"
-                r="80"
-                className="stroke-cyber-blue/20"
-                fill="none"
-                strokeWidth="0.5"
-                strokeDasharray="2 4"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 100 100"
-                  to="-360 100 100"
-                  dur="30s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-
-              {/* Dynamic Core Structure */}
-              <g filter="url(#enhancedGlow)">
-                {/* Hexagonal Core */}
-                {[0, 60, 120, 180, 240, 300].map((angle) => (
-                  <path
-                    key={angle}
-                    d={"M100 70l17.32 10v20L100 110l-17.32-10V80z"}
-                    className="fill-cyber-blue/5 stroke-cyber-blue/40"
-                    strokeWidth="0.5"
-                    transform={`rotate(${angle} 100 100)`}
-                  >
-                    <animate
-                      attributeName="stroke-opacity"
-                      values="0.4;0.8;0.4"
-                      dur="3s"
-                      repeatCount="indefinite"
-                      begin={`${angle / 360}s`}
-                    />
-                  </path>
-                ))}
-              </g>
-
-              {/* Energy Flow Paths */}
-              <g className="text-cyber-blue/30">
-                {[0, 72, 144, 216, 288].map((angle) => (
-                  <path
-                    key={angle}
-                    d={"M100 40Q130 70,100 100Q70 130,100 160"}
-                    className="stroke-current"
-                    fill="none"
-                    strokeWidth="0.5"
-                    transform={`rotate(${angle} 100 100)`}
-                  >
-                    <animate
-                      attributeName="d"
-                      values="M100 40Q130 70,100 100Q70 130,100 160;
-                              M100 40Q140 70,100 100Q60 130,100 160;
-                              M100 40Q130 70,100 100Q70 130,100 160"
-                      dur="5s"
-                      repeatCount="indefinite"
-                    />
-                  </path>
-                ))}
-              </g>
-
-              {/* Quantum Particle Effects */}
-              {[...Array(20)].map((_, i) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                <g key={i} className="text-cyber-blue">
-                  <circle r="0.8" className="fill-current">
-                    <animateMotion
-                      path="M0,0 A40,40 0 1,1 0,80 A40,40 0 1,1 0,0"
-                      dur={`${3 + (i % 5)}s`}
-                      repeatCount="indefinite"
-                      begin={`-${i * 0.2}s`}
-                    />
-                    <animate
-                      attributeName="opacity"
-                      values="0;1;0"
-                      dur="2s"
-                      repeatCount="indefinite"
-                      begin={`-${i * 0.1}s`}
-                    />
-                  </circle>
-                </g>
-              ))}
-
-              {/* Central AI Text */}
-              <g filter="url(#enhancedGlow)">
-                <text
-                  x="100"
-                  y="105"
-                  className="text-4xl font-bold fill-cyber-blue text-center"
-                  textAnchor="middle"
-                >
-                  AI
-                  <animate
-                    attributeName="opacity"
-                    values="1;0.6;1"
-                    dur="2.5s"
-                    repeatCount="indefinite"
-                  />
-                </text>
-              </g>
-
-              {/* Data Stream Effects */}
-              {[0, 120, 240].map((angle) => (
+              {/* Connection Lines */}
+              <g className="connection-paths">
+                {/* Main Paths */}
                 <path
-                  key={angle}
-                  d="M60 100Q100 60,140 100Q100 140,60 100"
-                  className="stroke-cyber-blue/20"
+                  d="M30,100 L70,100 C80,100 90,60 100,60 L140,60"
+                  className="stroke-cyan-400/30"
+                  strokeWidth="1.5"
                   fill="none"
-                  strokeWidth="0.3"
-                  transform={`rotate(${angle} 100 100)`}
                 >
                   <animate
-                    attributeName="d"
-                    values="M60 100Q100 60,140 100Q100 140,60 100;
-                            M60 100Q100 50,140 100Q100 150,60 100;
-                            M60 100Q100 60,140 100Q100 140,60 100"
-                    dur="6s"
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
                     repeatCount="indefinite"
                   />
                 </path>
+                <path
+                  d="M70,100 C80,100 90,140 100,140 L140,140"
+                  className="stroke-emerald-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-5s"
+                  />
+                </path>
+
+                {/* Additional Connection Paths */}
+                <path
+                  d="M70,100 C80,100 85,80 100,80"
+                  className="stroke-cyan-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-7s"
+                  />
+                </path>
+                <path
+                  d="M70,100 C80,100 85,120 100,120"
+                  className="stroke-emerald-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-9s"
+                  />
+                </path>
+
+                {/* Connecting to End Node */}
+                <path
+                  d="M140,60 C150,60 160,100 170,100"
+                  className="stroke-cyan-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-10s"
+                  />
+                </path>
+                <path
+                  d="M140,140 C150,140 160,100 170,100"
+                  className="stroke-emerald-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-15s"
+                  />
+                </path>
+                <path
+                  d="M100,80 C120,80 140,90 170,100"
+                  className="stroke-cyan-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-12s"
+                  />
+                </path>
+                <path
+                  d="M100,120 C120,120 140,110 170,100"
+                  className="stroke-emerald-400/30"
+                  strokeWidth="1.5"
+                  fill="none"
+                >
+                  <animate
+                    attributeName="stroke-dasharray"
+                    values="0,1000;1000,0"
+                    dur="20s"
+                    repeatCount="indefinite"
+                    begin="-17s"
+                  />
+                </path>
+              </g>
+
+              {/* Nodes */}
+              <g filter="url(#nodeGlow)">
+                {/* Start Node */}
+                <circle
+                  cx="30"
+                  cy="100"
+                  r="8"
+                  className="fill-cyan-500/20 stroke-cyan-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="8;9;8"
+                    dur="4s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+
+                {/* Junction Node */}
+                <circle
+                  cx="70"
+                  cy="100"
+                  r="10"
+                  className="fill-emerald-500/20 stroke-emerald-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="10;11;10"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-0.5s"
+                  />
+                </circle>
+
+                {/* Middle Layer Nodes */}
+                <circle
+                  cx="100"
+                  cy="60"
+                  r="12"
+                  className="fill-emerald-500/20 stroke-emerald-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="12;14;12"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-1s"
+                  />
+                </circle>
+
+                <circle
+                  cx="100"
+                  cy="80"
+                  r="8"
+                  className="fill-cyan-500/20 stroke-cyan-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="8;9;8"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-1.5s"
+                  />
+                </circle>
+
+                <circle
+                  cx="100"
+                  cy="120"
+                  r="8"
+                  className="fill-emerald-500/20 stroke-emerald-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="8;9;8"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-2s"
+                  />
+                </circle>
+
+                <circle
+                  cx="100"
+                  cy="140"
+                  r="12"
+                  className="fill-cyan-500/20 stroke-cyan-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="12;14;12"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-2.5s"
+                  />
+                </circle>
+
+                {/* Right Layer Nodes */}
+                <circle
+                  cx="140"
+                  cy="60"
+                  r="10"
+                  className="fill-emerald-500/20 stroke-emerald-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="10;12;10"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-3s"
+                  />
+                </circle>
+
+                <circle
+                  cx="140"
+                  cy="140"
+                  r="10"
+                  className="fill-cyan-500/20 stroke-cyan-400"
+                  strokeWidth="1.5"
+                >
+                  <animate
+                    attributeName="r"
+                    values="10;12;10"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin="-3.5s"
+                  />
+                </circle>
+
+                {/* Brain Icon with Glow */}
+                <g transform="translate(158.5, 88)">
+                  <Brain
+                    className="w-8 h-8 text-emerald-400 animate-pulse"
+                    strokeWidth={1.2}
+                  >
+                    <animate
+                      attributeName="opacity"
+                      values="0.9;1.5;0.9"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </Brain>
+                  {/* Add glowing effect behind the brain */}
+                  {/* <circle
+                    r="12"
+                    cx="16"
+                    cy="16"
+                    className="fill-emerald-500/20"
+                    filter="url(#brainGlow)"
+                  >
+                    <animate
+                      attributeName="r"
+                      values="12;14;12"
+                      dur="2s"
+                      repeatCount="indefinite"
+                    />
+                  </circle> */}
+                </g>
+                <g transform="translate(170,100)">
+                  <circle
+                    r="16"
+                    className="fill-gradient-to-br from-cyan-500/20 to-emerald-500/20 stroke-emerald-400"
+                    strokeWidth="1.5"
+                  >
+                    <animate
+                      attributeName="r"
+                      values="16;18;16"
+                      dur="4s"
+                      repeatCount="indefinite"
+                      begin="-4s"
+                    />
+                  </circle>
+                </g>
+              </g>
+
+              {/* Flowing Particles */}
+              {[...Array(8)].map((_, i) => (
+                <circle
+                  key={`particle-${
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    i
+                  }`}
+                  r="1.5"
+                  className="fill-cyan-400"
+                >
+                  <animateMotion
+                    path="M30,100 L70,100 C80,100 90,60 100,60 L140,60 C150,60 160,100 170,100"
+                    dur={`${15 + i * 2}s`}
+                    repeatCount="indefinite"
+                    rotate="auto"
+                  >
+                    <mpath href="#flowPath1" />
+                  </animateMotion>
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;0"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin={`-${i * 2}s`}
+                  />
+                </circle>
+              ))}
+              {[...Array(8)].map((_, i) => (
+                <circle
+                  key={`particle2-${
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    i
+                  }`}
+                  r="1.5"
+                  className="fill-emerald-400"
+                >
+                  <animateMotion
+                    path="M30,100 L70,100 C80,100 90,140 100,140 L140,140 C150,140 160,100 170,100"
+                    dur={`${15 + i * 2}s`}
+                    repeatCount="indefinite"
+                    rotate="auto"
+                  >
+                    <mpath href="#flowPath2" />
+                  </animateMotion>
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;0"
+                    dur="4s"
+                    repeatCount="indefinite"
+                    begin={`-${i * 2}s`}
+                  />
+                </circle>
               ))}
             </svg>
 
-            {/* Enhanced Ambient Glow */}
-            <div className="absolute inset-0">
-              <div className="absolute inset-0 bg-cyber-blue/5 blur-3xl rounded-full animate-pulse" />
-              <div className="absolute inset-10 bg-cyber-blue/3 blur-2xl rounded-full animate-pulse [animation-delay:0.5s]" />
+            {/* Ambient Glow */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-full animate-[pulse_10s_ease-in-out_infinite]" />
+              <div className="absolute inset-10 bg-emerald-500/3 blur-2xl rounded-full animate-[pulse_15s_ease-in-out_infinite]" />
             </div>
           </div>
         </div>
 
-        {/* Right Column - Content (was previously on left) */}
+        {/* Right Column - Move outside of SVG container */}
         <div className="space-y-10 order-1 md:order-2">
-          <div className="space-y-4">
-            <h2
-              id="business-potential-title"
-              className="text-3xl md:text-4xl font-bold text-white leading-tight"
-            >
-              Is AI Still on Your <br />
-              <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
-                To-Do List?
-              </span>
-            </h2>
-          </div>
+          <h2
+            id="business-potential-title"
+            className="text-3xl md:text-4xl font-bold text-white leading-tight"
+          >
+            Integrating AI on Your
+            <br />
+            <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+              To-Do List?
+            </span>
+          </h2>
 
-          <ul className="space-y-6">
+          <ul className="space-y-6 mt-8">
             {challenges.map((challenge) => (
-              <li key={challenge} className="group flex items-start space-x-4">
+              <li key={challenge} className="flex items-start space-x-4">
                 <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 mt-1">
-                  <X className="w-5 h-5 text-red-500" />
+                  <Square className="w-5 h-5 text-gray-500" />
                 </span>
                 <span className="block text-gray-200 text-lg">{challenge}</span>
               </li>
             ))}
           </ul>
+          <p className="text-gray-400 font-mono text-md italic mt-6">
+            Ready to check these off your list?{" "}
+            <a href="#bookcall" className="text-cyber-blue underline">
+              Let&apos;s talk.
+            </a>
+          </p>
         </div>
       </div>
     </section>
