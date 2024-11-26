@@ -28,7 +28,7 @@ const Benefits = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => (
             <div
               key={benefit.title}
               className="bg-navy-800/50 rounded-xl p-8 border border-cyber-blue/20 backdrop-blur-sm"

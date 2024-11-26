@@ -159,7 +159,7 @@ const BusinessPotential = () => {
                 {[0, 72, 144, 216, 288].map((angle) => (
                   <path
                     key={angle}
-                    d={`M100 40Q130 70,100 100Q70 130,100 160`}
+                    d={"M100 40Q130 70,100 100Q70 130,100 160"}
                     className="stroke-current"
                     fill="none"
                     strokeWidth="0.5"
@@ -179,6 +179,7 @@ const BusinessPotential = () => {
 
               {/* Quantum Particle Effects */}
               {[...Array(20)].map((_, i) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 <g key={i} className="text-cyber-blue">
                   <circle r="0.8" className="fill-current">
                     <animateMotion
