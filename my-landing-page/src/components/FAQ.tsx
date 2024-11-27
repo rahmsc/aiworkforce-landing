@@ -8,34 +8,35 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What makes your software development house different?",
+      question: "Can you integrate AI solutions with my existing systems?",
       answer:
-        "We're not just another development agency. We specialize in helping entrepreneurs and small businesses create future-proof solutions through our 4-stage process: Design, Develop, Optimize, Deliver. Our boutique approach ensures personalized attention, agility, and custom-built solutions that align with your business goals.",
+        "Yes, I specialize in integrating custom AI solutions with your current software and workflows. The goal is to enhance your existing operations without disrupting them.",
     },
     {
-      question: "I'm not technical—can I still work with you?",
+      question: "Do I need technical expertise to work with you?",
       answer:
-        "Absolutely! We love working with non-technical founders and business owners. Our team simplifies the complex and walks you through every step—from understanding your vision to delivering a fully functional product. We handle the tech so you can focus on growing your business.",
+        "Not at all! We simplify the complex world of AI and software development. We'll guide you through each step—from understanding your vision to delivering a fully functional solution—so you can focus on running your business.",
     },
     {
-      question: "How long does a typical project take?",
+      question: "How long will it take to develop my solution?",
       answer:
-        "Timelines vary depending on your project's scope and complexity. On average, smaller projects take 6–12 weeks, while more complex solutions might take longer. We'll provide a detailed timeline during the initial planning phase and keep you updated at every step.",
+        "Project timelines vary based on scope and complexity. Typically, custom solutions take between 4 to 8 weeks. During our initial consultation, we'll provide a detailed timeline tailored to your project.",
     },
     {
-      question: "How much does it cost to build my project?",
+      question: "What will it cost to build my custom AI solution?",
       answer:
-        "Costs depend on the features and complexity of your project. We offer transparent pricing and can help you prioritize features to fit your budget. Whether you're a startup or an established business, we'll work with you to deliver value-driven solutions without compromising quality.",
+        "Cost depends on the specific features and complexity of your project. As a solo developer, I offer competitive pricing and transparent estimates. We'll work together to align the project with your budget without compromising on quality.",
     },
     {
-      question: "Will I own the code and intellectual property?",
+      question: "Will I have full ownership of the final product?",
       answer:
-        "Yes! Once the project is complete, you will retain full ownership of the code and intellectual property. You'll have complete control over your product, ensuring it's truly yours.",
+        "Yes, absolutely! Upon project completion, you will own 100% of the code and all its components. You'll have complete control over your custom solution.",
     },
     {
-      question: "What if I need support after the project is completed?",
+      question:
+        "What kind of support do you offer after the project is finished?",
       answer:
-        "We've got you covered! We offer post-launch support, including updates, troubleshooting, and optimization, to ensure your product continues to run smoothly. If you need to scale or make changes, we're here to help.",
+        "I provide ongoing support to ensure your solution continues to meet your needs. Whether it's updates, troubleshooting, or future enhancements, I'm here to help your business grow.",
     },
   ];
 

@@ -19,16 +19,16 @@ const AiExpertise = () => {
           <div className="space-y-6">
             <div className="space-y-1">
               <p className="text-gray-400 font-mono text-lg">
-                With 6+ years in tech—startups, freelancing, and solo
-                entrepreneurship—I understand the challenges of growing without
-                a team. You need solutions, not overhead.
+                With over six years in tech startups and entrepreneurship, I
+                understand the challenges of scaling without a large team. You
+                need effective solutions without unnecessary overhead.
               </p>
               <br />
               <div className="space-y-1">
                 <p className="text-gray-400 font-mono text-lg">
-                  That&apos;s where we come in. From custom AI tools to tailored
-                  software, we help you automate, streamline, and scale—smart,
-                  fast, and stress-free.
+                  SOLVR delivers custom AI tools and tailored software to help
+                  you automate processes, streamline operations, and scale your
+                  business efficiently.
                 </p>
               </div>
             </div>

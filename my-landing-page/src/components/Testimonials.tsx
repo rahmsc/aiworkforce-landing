@@ -9,7 +9,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote:
-        "Working with Dan has been a game-changer. The AI workflows he built for us are next-level—what used to take hours now happens in seconds. We're producing more content than ever before, and it's had a massive impact on our productivity and reach.",
+        "Working with Dan has been transformative. The custom AI workflows he developed for us have revolutionised our operations. Tasks that used to consume hours are now automated and completed in seconds. It has allowed for our content creation abilities to skyrocket!",
       author: "Peter Frost",
       role: "Founder",
       company: "HyperbaricHQ",
@@ -19,7 +19,7 @@ const Testimonials = () => {
     },
     {
       quote:
-        "Dan completely transformed how we think about AI and blockchain. His insights weren't just technical—they shaped our entire product strategy. Thanks to his expertise, we've scaled faster and more confidently than we thought possible.",
+        "Dan helped reshape our approach to AI and blockchain integration. His deep insights weren't just technical—they were fundamental in our entire product strategy. This has allowed for us to scale our platform faster and with more confidence.",
       author: "Alex Flamsteed",
       role: "CEO",
       company: "Temple Technology",
@@ -29,7 +29,7 @@ const Testimonials = () => {
     },
     {
       quote:
-        "I was overwhelmed trying to process a huge amount of data for a pitch. Dan stepped in and made it happen. His speed and attention to detail were unbelievable—we hit our deadline, and the final presentation blew our investors away.",
+        "I was overwhelmed with processing a massive amount of data for an upcoming pitch. Working with Dan, I was about to turn what seemed impossible into a streamlined process. His speed and attention to detail were outstanding. In the end, I was able to meet my deadline with ease.",
       author: "Hannah Biddell",
       role: "Lead Researcher",
       company: "Emergence Benefactors",

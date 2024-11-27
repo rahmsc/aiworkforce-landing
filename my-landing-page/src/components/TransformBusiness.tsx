@@ -10,22 +10,22 @@ type Solution = {
 
 const solutions: Solution[] = [
   {
-    title: "Tailored Software",
-    subtitle: "Built Just for You",
+    title: "Custom Software",
+    subtitle: "Built for Your Success",
     description:
-      "Custom Solutions, Maximum Impact. When you work with us, you don't get cookie-cutter tools—you get software and AI solutions designed specifically for your needs.",
+      "Get tailor-made AI solutions designed exclusively for your business. No generic tools—just powerful software that drives results.",
   },
   {
     title: "AI Expertise",
-    subtitle: "Stay Ahead of the Curve",
+    subtitle: "Stay Ahead Effortlessly",
     description:
-      "Proven Expertise, Industry Insights. With experience working alongside industry leaders in AI and tech, we bring the latest innovations and best practices to your project.",
+      "Leverage cutting-edge AI without the steep learning curve. We bring industry-leading insights to keep you ahead of the competition.",
   },
   {
-    title: "Effortless Scaling",
-    subtitle: "Cost-Effective Growth",
+    title: "Scalable Solutions",
+    subtitle: "Grow Without Limits",
     description:
-      "Own It, Scale It, Control Costs. Our solutions are designed to grow with your business—seamlessly and affordably.",
+      "Experience seamless growth with software that scales as you do. Achieve more while controlling costs and maximizing efficiency.",
   },
 ];
 
@@ -41,10 +41,13 @@ const TransformBusiness = () => {
         {/* Enhanced Header */}
         <div className="text-center space-y-6 mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-            Why Work With Us?
+            Why Choose{" "}
+            <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+              SOLVR
+            </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            The right tools. The right expertise. The right results.
+            The Expertise You Need. The Results You Want.
           </p>
         </div>
 

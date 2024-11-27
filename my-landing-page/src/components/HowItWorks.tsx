@@ -6,23 +6,23 @@ const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      title: "Book a call",
+      title: "Schedule Your Free Consultation",
       description:
-        "We schedule a call to discuss through your needs precisely. We chat through the potential solutions and help you find the best fit for your needs.",
+        "Book a call to discuss your specific needs. We'll identify the best AI solutions to transform your business.",
       icon: "📞",
     },
     {
       number: "02",
-      title: "We get to work",
+      title: "We Build Your Custom Solution",
       description:
-        "Our team works hard to turn your requirements into a seamless working reality through careful planning and execution.",
+        "I craft a tailored AI workflow or application that addresses your challenges and positions your business for growth.",
       icon: "⚡",
     },
     {
       number: "03",
-      title: "Your dream business",
+      title: "Experience Accelerated Growth",
       description:
-        "Watch your business grow as your fully developed code is live, amazingly you will receive 100% ownership of the code and all its components.",
+        "Launch your custom solution and enjoy increased efficiency, automation, and a competitive edge—all with full ownership of your software.",
       icon: "🚀",
     },
   ];
