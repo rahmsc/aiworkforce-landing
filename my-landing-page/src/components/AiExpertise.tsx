@@ -3,12 +3,15 @@ import Image from "next/image";
 
 const AiExpertise = () => {
   return (
-    <section id="who" className="bg-background py-24 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section
+      id="who"
+      className="bg-background pt-4 sm:pt-8 lg:pt-4 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Column - Content */}
-        <div className="space-y-8 max-w-xl">
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+        <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Accelerate Growth with{" "}
               <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
                 SOLVR
@@ -16,55 +19,60 @@ const AiExpertise = () => {
             </h2>
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-1">
-              <p className="text-gray-400 font-mono text-lg">
-                With over six years in tech startups and entrepreneurship, I
-                understand the challenges of scaling without a large team. You
-                need effective solutions without unnecessary overhead.
-              </p>
-              <br />
-              <div className="space-y-1">
-                <p className="text-gray-400 font-mono text-lg">
-                  SOLVR delivers custom AI tools and tailored software to help
-                  you automate processes, streamline operations, and scale your
-                  business efficiently.
-                </p>
-              </div>
-            </div>
+          <div className="space-y-4 sm:space-y-6">
+            <p className="text-gray-400 font-mono text-base sm:text-lg">
+              With over six years in tech startups and entrepreneurship, I
+              understand the challenges of scaling without a large team. You
+              need effective solutions without unnecessary overhead.
+            </p>
+            <p className="text-gray-400 font-mono text-base sm:text-lg">
+              SOLVR delivers custom AI tools and tailored software to help you
+              automate processes, streamline operations, and scale your business
+              efficiently.
+            </p>
           </div>
         </div>
 
         {/* Right Column - Professional Profile */}
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center mt-8 lg:mt-0">
           {/* Enhanced Glow Effect Background */}
-          <div className="absolute inset-0 bg-cyber-blue/5 rounded-3xl blur-3xl animate-pulse-slow" />
+          <div className="absolute inset-0 bg-cyber-blue/5 rounded-3xl blur-2xl sm:blur-3xl animate-pulse-slow" />
 
-          <div className="relative bg-navy-800/50 rounded-3xl p-10 backdrop-blur-sm border border-cyber-blue/20 w-full max-w-sm">
-            <div className="flex flex-col items-center space-y-8">
+          <div
+            className="relative bg-navy-800/50 rounded-3xl p-6 sm:p-8 lg:p-10 backdrop-blur-sm 
+            border border-cyber-blue/20 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-sm"
+          >
+            <div className="flex flex-col items-center space-y-6 sm:space-y-8">
               {/* Profile Image with Enhanced Glow */}
               <div className="relative">
                 <div className="absolute inset-0 bg-cyber-blue/20 rounded-3xl blur-xl animate-pulse-slow" />
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyber-blue/50 to-purple-400/50 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
+                  <div
+                    className="absolute -inset-0.5 bg-gradient-to-r from-cyber-blue/50 to-purple-400/50 
+                    rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-300"
+                  />
                   <Image
                     src="/testimonial-photos/dan.jpg"
                     alt="AI Expert Profile"
                     width={220}
                     height={220}
-                    className="relative w-48 h-48 rounded-3xl object-cover border-2 border-cyber-blue/30 transform transition duration-300 group-hover:scale-[1.02]"
+                    className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-3xl object-cover 
+                      border-2 border-cyber-blue/30 transform transition duration-300 group-hover:scale-[1.02]"
                     priority
                   />
                 </div>
               </div>
 
               {/* Profile Info with Enhanced Typography */}
-              <div className="text-center space-y-3">
-                <h3 className="text-2xl font-bold text-white tracking-wide">
+              <div className="text-center space-y-2 sm:space-y-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
                   Daniel Milad
                 </h3>
                 <div className="flex flex-col items-center space-y-2">
-                  <p className="text-gray-300 font-mono text-sm px-3 py-1 bg-navy-900/50 rounded-full border border-cyber-blue/20">
+                  <p
+                    className="text-gray-300 font-mono text-sm px-3 py-1 bg-navy-900/50 
+                    rounded-full border border-cyber-blue/20"
+                  >
                     Software Engineer
                   </p>
                   <p className="text-gray-400 text-sm max-w-xs">
@@ -78,13 +86,14 @@ const AiExpertise = () => {
                 href="https://linkedin.com/in/your-profile"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center space-x-3 bg-gradient-to-r from-cyber-blue/10 to-purple-500/10 
-                         hover:from-cyber-blue/20 hover:to-purple-500/20 text-cyber-blue px-6 py-3 rounded-lg 
-                         transition-all duration-300 border border-cyber-blue/20 hover:border-cyber-blue/30"
+                className="group flex items-center space-x-2 sm:space-x-3 bg-gradient-to-r 
+                  from-cyber-blue/10 to-purple-500/10 hover:from-cyber-blue/20 hover:to-purple-500/20 
+                  text-cyber-blue px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all duration-300 
+                  border border-cyber-blue/20 hover:border-cyber-blue/30 w-full sm:w-auto justify-center"
                 aria-label="Connect on LinkedIn"
               >
                 <svg
-                  className="w-5 h-5 group-hover:scale-110 transition-transform duration-300"
+                  className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"

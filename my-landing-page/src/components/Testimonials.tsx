@@ -1,7 +1,6 @@
 "use client";
 
-import { Quote } from "lucide-react";
-import { Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,7 +43,7 @@ const Testimonials = () => {
       <Star
         // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         key={index}
-        className={`w-4 h-4 ${
+        className={`w-3 h-3 sm:w-4 sm:h-4 ${
           index < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-400"
         }`}
       />
@@ -52,43 +51,73 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="bg-background py-32 px-8 md:px-16">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+    <section
+      id="testimonials"
+      className="bg-background py-16 sm:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+    >
+      {/* Background Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/5 to-transparent opacity-30" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Enhanced Header */}
+        <h2
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center 
+          mb-8 sm:mb-12 lg:mb-16"
+        >
           Client{" "}
-          <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+          <span
+            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent 
+            bg-clip-text inline-block transform hover:scale-105 transition-transform duration-300"
+          >
             Testimonials
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
+        {/* Enhanced Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.author}
-              className="group h-[500px] relative rounded-xl p-[2px] bg-gradient-to-r from-transparent via-cyber-blue to-transparent 
-                hover:via-cyber-blue/80 transition-all duration-500
-                animate-border-travel bg-[length:200%_200%]"
+              className="group relative rounded-xl p-[2px] bg-gradient-to-r from-transparent 
+                via-cyber-blue to-transparent hover:via-cyber-blue/80 transition-all duration-500
+                animate-border-travel bg-[length:200%_200%]
+                animate-fade-in"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
+              {/* Enhanced Glow Effect */}
               <div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-cyber-blue to-transparent 
-                rounded-xl animate-border-travel bg-[length:200%_200%] blur-sm opacity-50"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-cyber-blue 
+                  to-transparent rounded-xl animate-border-travel bg-[length:200%_200%] 
+                  blur-sm opacity-50"
               />
 
-              <div className="relative flex flex-col h-full bg-card-dark rounded-xl p-8">
-                <Quote className="w-8 h-8 text-cyber-blue mb-6 flex-shrink-0" />
-                <p className="text-gray-400 font-mono flex-grow overflow-y-auto scrollbar-thin scrollbar-thumb-cyber-blue scrollbar-track-transparent">
+              {/* Card Content */}
+              <div
+                className="relative flex flex-col h-[400px] sm:h-[450px] lg:h-[500px] 
+                bg-card-dark rounded-xl p-6 sm:p-8"
+              >
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-cyber-blue mb-4 sm:mb-6 flex-shrink-0" />
+
+                {/* Testimonial Text */}
+                <p
+                  className="text-gray-400 font-mono text-sm sm:text-base flex-grow 
+                  overflow-y-auto scrollbar-thin scrollbar-thumb-cyber-blue/50 
+                  scrollbar-track-transparent pr-2"
+                >
                   {testimonial.quote}
                 </p>
 
-                <div className="flex-shrink-0 pt-8">
-                  <div className="flex items-start gap-4">
+                {/* Author Info */}
+                <div className="flex-shrink-0 pt-6 sm:pt-8">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    {/* Profile Image */}
                     <Link
                       href={testimonial.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative w-12 h-12 rounded-full overflow-hidden 
+                      className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden 
                         ring-2 ring-cyber-blue hover:ring-4 transition-all duration-300
-                        flex-shrink-0"
+                        flex-shrink-0 focus:outline-none focus:ring-4"
                       aria-label={`Visit ${testimonial.author}'s LinkedIn profile`}
                     >
                       <Image
@@ -102,19 +131,21 @@ const Testimonials = () => {
                       />
                     </Link>
 
-                    <div className="flex-1">
-                      <p className="text-white font-bold text-lg">
+                    {/* Author Details */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white font-bold text-base sm:text-lg truncate">
                         {testimonial.author}
                       </p>
-                      <p className="text-cyber-blue font-medium">
+                      <p className="text-cyber-blue font-medium text-sm sm:text-base truncate">
                         {testimonial.role}
                       </p>
-                      <p className="text-gray-400 text-sm">
+                      <p className="text-gray-400 text-xs sm:text-sm truncate">
                         {testimonial.company}
                       </p>
                     </div>
 
-                    <div className="flex gap-0.5">
+                    {/* Rating Stars */}
+                    <div className="flex gap-0.5 flex-shrink-0">
                       {renderStars(testimonial.rating)}
                     </div>
                   </div>

@@ -41,40 +41,66 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="bg-background py-24 px-4 md:px-8">
+    <section className="bg-background py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-12">
+        <h2
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-center 
+          mb-8 sm:mb-10 lg:mb-12"
+        >
           Frequently Asked{" "}
-          <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
+          <span
+            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 
+            text-transparent bg-clip-text inline-block transform 
+            hover:scale-105 transition-transform duration-300"
+          >
             Questions
           </span>
         </h2>
 
-        <div className="space-y-4 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-3 sm:space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <div
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={index}
-              className="bg-navy-800/50 rounded-xl border border-cyber-blue/20 backdrop-blur-sm"
+              className="bg-navy-800/50 rounded-xl border border-cyber-blue/20 
+                backdrop-blur-sm transition-all duration-300
+                hover:border-cyber-blue/40 hover:bg-navy-800/70"
             >
               <button
                 type="button"
-                className="w-full px-8 py-6 flex items-center justify-between"
+                className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 lg:py-6 
+                  flex items-center justify-between gap-4 group"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="text-white font-bold text-left">
+                <span
+                  className="text-white font-bold text-left text-sm sm:text-base lg:text-lg
+                  group-hover:text-cyber-blue transition-colors duration-300"
+                >
                   {faq.question}
                 </span>
                 {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-cyber-blue" />
+                  <ChevronUp
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-blue 
+                    flex-shrink-0 transition-transform duration-300 
+                    group-hover:scale-110"
+                  />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-cyber-blue" />
+                  <ChevronDown
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-blue 
+                    flex-shrink-0 transition-transform duration-300 
+                    group-hover:scale-110"
+                  />
                 )}
               </button>
+
               {openIndex === index && (
-                <div className="px-8 pb-6">
-                  <p className="text-gray-400 font-mono">{faq.answer}</p>
+                <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-5 lg:pb-6">
+                  <p
+                    className="text-gray-400 font-mono text-sm sm:text-base 
+                    leading-relaxed animate-fade-in"
+                  >
+                    {faq.answer}
+                  </p>
                 </div>
               )}
             </div>

@@ -12,14 +12,20 @@ const challenges = [
 const BusinessPotential = () => {
   return (
     <section
-      className="bg-background py-32 px-4 md:px-8"
+      className="bg-background py-16 sm:py-16 lg:py-8 pb-4 sm:pb-8 lg:pb-4 px-4 sm:px-6 lg:px-8"
       aria-labelledby="business-potential-title"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
-        {/* Left Column - SVG */}
-        <div className="flex justify-center order-2 md:order-1">
-          <div className="relative w-72 h-72 md:w-[450px] md:h-[450px]">
-            {/* biome-ignore lint/a11y/noSvgWithoutTitle: SVG is decorative */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-32 items-center">
+        {/* SVG Container - Increased sizes by 50% */}
+        <div className="flex justify-center order-2 lg:order-1 mt-8 lg:mt-0">
+          <div
+            className="relative w-full 
+            max-w-[450px] h-[450px] 
+            sm:w-[525px] sm:h-[525px] 
+            lg:w-[675px] lg:h-[675px]"
+          >
+            {/* SVG content remains the same, but with responsive adjustments */}
+            {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
             <svg
               viewBox="0 0 200 200"
               fill="none"
@@ -423,19 +429,19 @@ const BusinessPotential = () => {
               ))}
             </svg>
 
-            {/* Ambient Glow */}
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-full animate-[pulse_10s_ease-in-out_infinite]" />
-              <div className="absolute inset-10 bg-emerald-500/3 blur-2xl rounded-full animate-[pulse_15s_ease-in-out_infinite]" />
+            {/* Ambient Glow - Adjusted for larger size */}
+            <div className="absolute inset-0 -z-10 opacity-50 lg:opacity-100">
+              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl lg:blur-[4rem] rounded-full animate-[pulse_10s_ease-in-out_infinite]" />
+              <div className="absolute inset-12 lg:inset-16 bg-emerald-500/3 blur-2xl lg:blur-[3rem] rounded-full animate-[pulse_15s_ease-in-out_infinite]" />
             </div>
           </div>
         </div>
 
-        {/* Right Column - Move outside of SVG container */}
-        <div className="space-y-10 order-1 md:order-2">
+        {/* Content Container - Improved spacing and text sizing */}
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10 order-1 lg:order-2">
           <h2
             id="business-potential-title"
-            className="text-3xl md:text-4xl font-bold text-white leading-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight"
           >
             Integrating AI on Your
             <br />
@@ -444,19 +450,29 @@ const BusinessPotential = () => {
             </span>
           </h2>
 
-          <ul className="space-y-6 mt-8">
+          <ul className="space-y-4 sm:space-y-6 mt-4 sm:mt-6 lg:mt-8">
             {challenges.map((challenge) => (
-              <li key={challenge} className="flex items-start space-x-4">
-                <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 mt-1">
-                  <Square className="w-5 h-5 text-gray-500" />
+              <li
+                key={challenge}
+                className="flex items-start space-x-3 sm:space-x-4"
+              >
+                <span className="flex-shrink-0 flex items-center justify-center w-5 sm:w-6 h-5 sm:h-6 mt-1">
+                  <Square className="w-4 sm:w-5 h-4 sm:h-5 text-gray-500" />
                 </span>
-                <span className="block text-gray-200 text-lg">{challenge}</span>
+                <span className="block text-gray-200 text-base sm:text-lg">
+                  {challenge}
+                </span>
               </li>
             ))}
           </ul>
-          <p className="text-gray-400 font-mono text-md italic mt-6">
+
+          <p className="text-gray-400 font-mono text-sm sm:text-md italic mt-4 sm:mt-6">
             Ready to check these off your list?{" "}
-            <a href="#bookcall" className="text-cyber-blue underline">
+            <a
+              href="#bookcall"
+              className="text-cyber-blue underline hover:text-cyber-blue/80 transition-colors
+                focus:outline-none focus:ring-2 focus:ring-cyber-blue/50 rounded"
+            >
               Let&apos;s talk.
             </a>
           </p>

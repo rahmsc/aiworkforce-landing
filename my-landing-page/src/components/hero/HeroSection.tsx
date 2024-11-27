@@ -79,7 +79,24 @@ const teamMembers: TeamMember[] = [
 
 const TYPED_WORDS = ["Business", "Brand", "Community"] as const;
 
-const HeroSection = () => {
+// type TypedWord = (typeof TYPED_WORDS)[number];
+
+interface HeroSectionProps {
+  className?: string;
+}
+
+// const TYPING_SPEEDS = {
+//   DELETING: 100,
+//   TYPING: 300,
+//   PAUSE: 2000,
+// } as const;
+
+const SCROLL_CONFIG = {
+  MAX_Z_TRANSLATE: 30,
+  CARD_ROTATION_INTERVAL: 5000,
+} as const;
+
+const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [typedWord, setTypedWord] = useState("");
@@ -129,19 +146,23 @@ const HeroSection = () => {
     return () => clearTimeout(timer);
   }, [typedWord, isDeleting, wordIndex, typingSpeed]);
 
-  // Update the scroll effect
+  // Optimize scroll handler with debounce
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = debounce(() => {
       if (!sectionRef.current) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
       const scrollProgress =
         1 - rect.bottom / (window.innerHeight + rect.height);
-
-      // Calculate z-translation between 0 and 30 based on scroll
-      const newZ = Math.max(0, Math.min(30, scrollProgress * 30));
+      const newZ = Math.max(
+        0,
+        Math.min(
+          SCROLL_CONFIG.MAX_Z_TRANSLATE,
+          scrollProgress * SCROLL_CONFIG.MAX_Z_TRANSLATE
+        )
+      );
       setZTranslate(newZ);
-    };
+    }, 16); // ~60fps
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -150,45 +171,20 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center px-6 py-20 overflow-hidden"
+      className="relative min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center 
+      px-4 lg:px-6 py-12 sm:py-16 lg:py-8 overflow-hidden"
+      aria-label="Hero Section"
     >
       <AnimatedBackground />
 
-      {/* Updated gradient overlay with slower animation */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/20 via-dark-navy/95 to-dark-navy z-10 animate-[glow-pulse_8s_ease-in-out_infinite]" />
-
-      {/* Slower radial glow with more subtle opacity changes */}
+      {/* Main content - Added pt-16 for mobile to account for navbar */}
       <div
-        className="absolute inset-0 z-[11]"
-        style={{
-          background:
-            "radial-gradient(circle at 15% 15%, rgba(66, 220, 255, 0.08) 0%, transparent 60%)",
-          animation: "glow-pulse 8s ease-in-out infinite",
-          animationDelay: "4s", // Offset timing for more dynamic effect
-        }}
-      />
-
-      {/* Rest of the components remain the same */}
-      <div
-        className="absolute inset-0 z-[11] opacity-[0.15]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgb(66 220 255 / 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgb(66 220 255 / 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <div className="absolute inset-0 z-[12] bg-gradient-radial from-cyber-blue/10 via-transparent to-transparent opacity-50" />
-
-      {/* Main content - update z-index to be above new background elements */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 
+        gap-8 lg:gap-12 items-center pt-16 sm:pt-20 lg:pt-0"
+      >
         {/* Left Content */}
-        <div className="space-y-6 pl-20">
-          <h1 className="text-5xl lg:text-6xl font-heading font-bold text-white">
-            {/* Embrace AI.
-              <br /> */}
+        <div className="space-y-6 px-4 lg:pl-20 text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white">
             Future-Proof Your
             <br />
             <span className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-transparent bg-clip-text">
@@ -196,24 +192,28 @@ const HeroSection = () => {
               <span className="animate-pulse">|</span>
             </span>
           </h1>
-          <p className="text-gray-400 font-mono text-lg max-w-xl">
+          <p className="text-gray-400 font-mono text-base lg:text-lg max-w-xl mx-auto lg:mx-0">
             Propel your business into the future with custom AI
             solutions—automate tasks, expand effortlessly, and outpace your
             competition.
           </p>
           <button
             type="button"
-            className="bg-gradient-to-br from-cyber-blue to-cyber-blue/70 text-dark-navy px-8 py-3 rounded font-mono font-medium hover:bg-opacity-90 transition-all"
+            className="w-full sm:w-auto bg-gradient-to-br from-cyber-blue to-cyber-blue/70 
+              text-dark-navy px-6 lg:px-8 py-3 rounded font-mono font-medium 
+              hover:bg-opacity-90 transition-all focus:ring-2 focus:ring-cyber-blue 
+              focus:outline-none"
+            aria-label="Book Your Free AI Consultation"
           >
             Book Your Free AI Consultation ⮕
           </button>
         </div>
 
-        {/* Right Content - Updated with centered card and circular buttons */}
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center justify-center gap-8 w-full max-w-[560px]">
+        {/* Right Content */}
+        <div className="flex flex-col items-center gap-4 mt-8 lg:mt-0">
+          <div className="flex items-center justify-center gap-8 w-full max-w-[min(100%,560px)]">
             <div
-              className="w-[384px] shrink-0"
+              className="w-full max-w-[384px] shrink-0"
               style={{
                 perspective: "1000px",
                 transformStyle: "preserve-3d",
@@ -234,12 +234,12 @@ const HeroSection = () => {
           </div>
 
           {/* Indicator Dots */}
-          <div className="flex gap-2 mt-4">
-            {teamMembers.map((_, index) => (
+          {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
+          <div className="flex gap-2 mt-4" role="tablist">
+            {teamMembers.map((member, index) => (
               <button
                 type="button"
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                key={index}
+                key={member.cardNumber}
                 onClick={() => {
                   setIsAutoPlaying(true);
                   setCurrentIndex(index);
@@ -249,7 +249,10 @@ const HeroSection = () => {
                     ? "w-6 bg-cyber-blue"
                     : "bg-cyber-blue/30 hover:bg-cyber-blue/50"
                 }`}
-                aria-label={`Go to agent ${index + 1}`}
+                aria-label={`View ${member.name}'s profile`}
+                aria-selected={index === currentIndex}
+                role="tab"
+                tabIndex={0}
               />
             ))}
           </div>
@@ -257,6 +260,15 @@ const HeroSection = () => {
       </div>
     </section>
   );
+};
+
+// Utility function for scroll optimization
+const debounce = (func: (...args: unknown[]) => void, wait: number) => {
+  let timeout: NodeJS.Timeout;
+  return (...args: unknown[]) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
 };
 
 export default HeroSection;
