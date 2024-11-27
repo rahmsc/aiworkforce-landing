@@ -172,7 +172,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
     <section
       ref={sectionRef}
       className="relative min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center 
-      px-4 lg:px-6 py-12 sm:py-16 lg:py-8 overflow-hidden"
+      px-4 lg:px-6 py-12 sm:py-16 lg:py-20 overflow-hidden"
       aria-label="Hero Section"
     >
       <AnimatedBackground />
