@@ -20,13 +20,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       lang="en"
       className={`${poppins.variable} ${robotoMono.variable} ${iceland.className}`}
     >
-      <head>
-        <HotJar />
-      </head>
       <body className="font-body">
         <Navbar />
         {children}
-
+        <HotJar />
         <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ""} />
       </body>
     </html>

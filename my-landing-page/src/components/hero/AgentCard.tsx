@@ -74,10 +74,10 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
           <div className="relative p-4">
             {/* Header Section */}
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-white font-heading">
                 {currentMember?.name || "Unknown"}
               </h3>
-              <div className="text-cyber-blue font-bold">
+              <div className="text-cyber-blue font-bold font-heading">
                 PWR {calculatePower()}
               </div>
             </div>
@@ -96,8 +96,8 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
             </div>
 
             {/* AI Agent Info */}
-            <div className="text-sm text-cyber-blue mb-4 border-b border-cyber-blue/20 pb-2">
-              <span className="text-md font-semibold capitalize tracking-wider">
+            <div className="text-sm text-cyber-blue mb-4 border-b border-cyber-blue/20 pb-2 font-heading">
+              <span className="text-md font-semibold capitalize tracking-wider font-heading">
                 {currentMember?.position || "Unknown"}
               </span>{" "}
               • <br />
@@ -116,18 +116,20 @@ const AgentCard = ({ teamMembers, currentIndex }: AgentCardProps) => {
                       <div className="w-6 h-6 rounded-full bg-cyber-blue/20 flex items-center justify-center text-cyber-blue">
                         {key.split(" ")[0]}
                       </div>
-                      <span className="text-white font-medium">
+                      <span className="text-white font-medium font-heading">
                         {key.split(" ").slice(1).join(" ")}
                       </span>
                     </div>
-                    <span className="text-cyber-blue font-bold">{value}</span>
+                    <span className="text-cyber-blue font-bold font-heading">
+                      {value}
+                    </span>
                   </div>
                 )
               )}
             </div>
 
             {/* Card Number */}
-            <div className="absolute bottom-2 right-4 text-cyber-blue/60 text-sm">
+            <div className="absolute bottom-2 right-4 text-cyber-blue/60 text-sm font-heading">
               #{currentMember?.cardNumber || "000"}
             </div>
           </div>
